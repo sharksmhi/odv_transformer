@@ -1,0 +1,50 @@
+//<MetaVariable>label="Cruise" var_type="METACRUISE" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Station" var_type="METASTATION" value_type="TEXT:21" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Type" var_type="METATYPE" value_type="TEXT:2" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="yyyy-mm-ddThh:mm:ss.sss" var_type="METABASIC" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Longitude [degrees_east]" var_type="METALONGITUDE" value_type="FLOAT" qf_schema="ODV" significant_digits="4" comment=""</MetaVariable>
+//<MetaVariable>label="Latitude [degrees_north]" var_type="METALATITUDE" value_type="FLOAT" qf_schema="ODV" significant_digits="4" comment=""</MetaVariable>
+//<MetaVariable>label="Bot. Depth [m]" var_type="METABOTDEPTH" value_type="FLOAT" qf_schema="ODV" significant_digits="1" comment=""</MetaVariable>
+//<MetaVariable>label="Platform Code [C17]" var_type="METAPLATFORM" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Device Category Code [L05]" var_type="METABASIC" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Distributor Code [EDMO]" var_type="METABASIC" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Custodian Code [EDMO]" var_type="METABASIC" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Originator Code [EDMO]" var_type="METABASIC" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//<MetaVariable>label="Project Code [EDMERP]" var_type="METAPROJECT" value_type="INDEXED_TEXT" qf_schema="ODV" significant_digits="0" comment=""</MetaVariable>
+//
+//<DataVariable>label="Pressure [dbar]" value_type="FLOAT" qf_schema="ODV" significant_digits="1" is_primary_variable="F" comment=""</DataVariable>
+//<DataVariable>label="Temperature [degC]" value_type="FLOAT" qf_schema="ODV" significant_digits="3" is_primary_variable="F" comment=""</DataVariable>
+//<DataVariable>label="Practical Salinity [dmnless]" value_type="FLOAT" qf_schema="ODV" significant_digits="3" is_primary_variable="F" comment=""</DataVariable>
+//<DataVariable>label="Dissolved Oxygen [ml/l]" value_type="FLOAT" qf_schema="ODV" significant_digits="2" is_primary_variable="F" comment=""</DataVariable>
+//
+//ICES_parameter_mapping
+//<subject>ICES:LOCAL:Pressure</subject><object>ICES:P01::PRESPR01</object><units>ICES:P06::UPDB</units>
+//<subject>ICES:LOCAL:Temperature</subject><object>ICES:P01::TEMPPR01</object><units>ICES:P06::UPAA</units>
+//<subject>ICES:LOCAL:Practical Salinity</subject><object>ICES:P01::PSALPR01</object><units>ICES:P06::UUUU</units>
+//<subject>ICES:LOCAL:Dissolved Oxygen</subject><object>ICES:P01::DOXYZZXX</object><units>ICES:P06::UMLL</units>
+//
+Cruise	Station	Type	yyyy-mm-ddThh:mm:ss.sss	Longitude [degrees_east]	Latitude [degrees_north]	Bot. Depth [m]	Platform Code [C17]	Device Category Code [L05]	Distributor Code [EDMO]	Custodian Code [EDMO]	Originator Code [EDMO]	Project Code [EDMERP]	Pressure [dbar]	QV:ODV:Pressure [dbar]	Temperature [degC]	QV:ODV:Temperature [degC]	Practical Salinity [dmnless]	QV:ODV:Practical Salinity [dmnless]	Dissolved Oxygen [ml/l]	QV:ODV:Dissolved Oxygen [ml/l]
+35HT202001	1	B	2020-01-10T09:13Z	1.4213	50.535	6.1	35HT	130	486	486	23~345~12	11606	1.5	0	9.208	0	34.291	0	6.24	0
+													2	0	9.207	0	34.29	0	6.25	0
+													2.5	0	9.206	0	34.29	0	6.26	0
+													3	0	9.205	0	34.289	0	6.28	0
+													3.5	0	9.205	0	34.289	0	6.28	0
+													4	0	9.205	0	34.289	0	6.27	0
+													4.5	0	9.206	0	34.289	0	6.25	0
+													5	0	9.205	0	34.289	0	6.24	0
+													5.5	0	9.205	0	34.289	0	6.25	0
+35HT202001	2	B	2020-01-10T10:05Z	1.4505	50.4895	8.9	35HT	130	486	486	23~345~12	11606	1.5	0	9.147	0	34.103	0	6.31	0
+													2	0	9.157	0	34.104	0	6.3	0
+													2.5	0	9.16	0	34.103	0	6.3	0
+													3	0	9.165	0	34.107	0	6.3	0
+													3.5	0	9.158	0	34.104	0	6.3	0
+													4	0	9.153	0	34.104	0	6.3	0
+													4.5	0	9.15	0	34.104	0	6.31	0
+													5	0	9.15	0	34.103	0	6.3	0
+													5.5	0	9.153	0	34.107	0	6.31	0
+													6	0	9.161	0	34.104	0	6.31	0
+													6.5	0	9.172	0	34.107	0	6.31	0
+													7	0	9.178	0	34.106	0	6.3	0
+													7.5	0	9.176	0	34.107	0	6.3	0
+													8	0	9.166	0	34.105	0	6.29	0
+													8.5	0	9.158	0	34.105	0	6.29	0
