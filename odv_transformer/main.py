@@ -9,7 +9,10 @@ Created on 2022-02-02 17:56
 
 
 class Session:
-    """Transform data into ODV-ICES format."""
+    """Transform data into ODV-ICES format.
+
+    https://www.ices.dk/data/data-portals/Pages/ocean-submit.aspx
+    """
 
     def __init__(self):
         pass
