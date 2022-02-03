@@ -13,6 +13,8 @@ except DistributionNotFound:
     # package is not installed
     pass
 
-from main import Transformer  # noqa: F401
+from odv_transformer.readers import *  # noqa: F401, F403
+from odv_transformer.writers import *  # noqa: F401, F403
+from odv_transformer.main import Session  # noqa: F401
 
 name = "odv_transformer"

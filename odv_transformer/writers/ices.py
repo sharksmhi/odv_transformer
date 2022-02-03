@@ -6,3 +6,10 @@ Created on 2022-02-02 18:22
 
 @author: johannes
 """
+
+
+class IcesOdvWriter:
+    """Convert NODC format into ICES ODV delivery format."""
+
+    def __init__(self, *args, **kwargs):
+        pass
