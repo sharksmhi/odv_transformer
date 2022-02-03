@@ -1,1 +1,46 @@
-data_table:
+description: Writer for txt files according to ICES ODV format
+name: ices
+data_type: txt
+reader: !!python/name:odv_transformer.writers.ices.IcesOdvWriter ''
+meta:
+    prefix: //<MetaVariable>
+    suffix: </MetaVariable>
+    seperator: " "
+    variables:
+
+data:
+    prefix: //<DataVariable>
+    suffix: </DataVariable>
+    variables:
+        "DEPH [m]"
+        "PRES [dbar]"
+        "TEMP [degC]"
+        "SALT [psu]"
+        "CNDC [mS/m]"
+        "DOXY [ml/l]"
+        "FLUO [unitless]"
+        "H2S [µmol/l]"
+        "PH [unitless]"
+        "PH_LAB [unitless]"
+        "PH_LAB_TEMP [degC]"
+        "ALKY [mmol/kg]"
+        "PHOS [µmol/l]"
+        "PTOT [µmol/l]"
+        "NTRI [µmol/l]"
+        "NTRA [µmol/l]"
+        "NTRZ [µmol/l]"
+        "AMON [µmol/l]"
+        "NTOT [µmol/l]"
+        "SIO3-SI [µmol/l]"
+        "HUMUS [mg/l]"
+        "CPHL [µg/l]"
+        "DOC [µmol/l]"
+        "POC [µmol/l]"
+        "TOC [mg/l]"
+        "PON [µmol/l]"
+        "CURDIR [decadeg]"
+        "CURVEL [m/s]"
+        "CDOM [1/m]"
+        "TURB [FNU]"
+
+mapping:
