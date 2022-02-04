@@ -8,10 +8,10 @@ Created on 2022-02-03 09:17
 """
 from abc import ABC
 import pandas as pd
-from odv_transformer.readers.reader import Reader
+from odv_transformer.readers.reader import ReaderBase
 
 
-class PandasTxtReader(Reader, ABC):
+class PandasTxtReader(ReaderBase, ABC):
     """Read txt/csv files with pandas."""
 
     def __init__(self, *args, **kwargs):

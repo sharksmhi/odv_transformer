@@ -1,0 +1,19 @@
+abstract: Regional monitoring data from the seas surrounding Sweden.
+access constraints: unrestricted
+address: Sven Källfelts gata 15
+citation: The data used in this (project/report/etc) has been downloaded from the Swedish National Oceanographic Data Centre at the Swedish Meteorological and Hydrological Institute (SMHI). Data has been collected within Swedish coordinated marine monitoring by (originator/orderer).
+city: Västra Frölunda
+coordinate system: WGS84
+data distributor: SMHI
+data holding centre: SMHI
+database reference: SHARK
+datatype: Physical and Chemical
+description: Oceanographic, physical and chemical data from water samples. Collected with bottle or CTD at discrete depths.
+discipline: Physical and chemical oceanography
+email: shark@smhi.se
+internet_access: http://sharkweb.smhi.se, http://sharkdata.se
+measuring area type: point
+originator: SMHI
+phone: +46-(0)11-495 80 00
+platform class: ship
+postal code: SE-426 71

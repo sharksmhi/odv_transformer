@@ -30,18 +30,15 @@ class Settings:
 
     def _load_settings(self, etc_path):
         """Load settings."""
-        settings = {}
         for fid in etc_path.glob('**/*.yaml'):
             with open(fid, encoding='utf8') as fd:
                 content = yaml.load(fd, Loader=yaml.FullLoader)
-                settings[str(fid)] = content
+                setattr(self, str(fid), content)
 
         for fid in etc_path.glob('**/*.json'):
             with open(fid, 'r') as fd:
                 content = json.load(fd)
-                settings[str(fid)] = content
-
-        self.set_attributes(self, **settings)
+                setattr(self, str(fid), content)
 
     def load_reader(self, reader):
         """Return reader instance."""
@@ -63,11 +60,31 @@ class Settings:
         """Return list of writers names."""
         return list(self.writers)
 
-    @staticmethod
-    def set_attributes(obj, **kwargs):
-        """Set attribute to object."""
-        for key, value in kwargs.items():
-            setattr(obj, key, value)
+    def get_export_file_path(self, file_path=None, file_name=None,
+                             default_file_name=None, **kwargs):
+        """Return path to export filename.
+
+        Whenever there´s not an export path given by the user,
+        we try to export elsewhere.
+        """
+        if file_path:
+            if Path(file_path).is_dir():
+                return file_path
+            elif Path(file_path).parent.is_dir():
+                return file_path
+            else:
+                raise Warning('file_path given, but it´s not valid.')
+
+        target_path = Path('C:/export_odv_data')
+        if Path('C:/').is_dir():
+            Path(target_path).mkdir(exist_ok=True)
+        else:
+            target_path = Path(self.base_directory)
+
+        file_name = file_name or default_file_name
+        file_name += '.txt' if not file_name.endswith('.txt') else ''
+
+        return target_path.joinpath(file_name)
 
     def __setattr__(self, name, value):
         """Define the setattr for object self.

@@ -74,7 +74,7 @@ class Session:
 
         self.deliveries.append_new_delivery(name=delivery_name, data=dfs)
 
-    def write(self, *args, writer=None, **kwargs):
+    def write(self, *args, writer=None, delivery_name=None, **kwargs):
         """Write log.
 
         Using the given writer (name of writer) to load and
@@ -99,15 +99,18 @@ class Session:
                     ', '.join(self.settings.list_of_writers)
                 )
             )
+        if not delivery_name:
+            raise ValueError('Missing delivery name! Please give one as input!')
 
         writer = self.settings.load_writer(writer)
         kwargs.setdefault('default_file_name', writer.default_file_name)
         file_path = self.settings.get_export_file_path(**kwargs)
 
-        if 'file_path' in kwargs:
-            kwargs.pop('file_path')
-        if 'file_name' in kwargs:
-            kwargs.pop('file_name')
         if 'default_file_name' in kwargs:
             kwargs.pop('default_file_name')
-        writer.write(file_path, **kwargs)
+        writer.write(
+            file_path,
+            self.deliveries.get(delivery_name),
+            pmap=self.settings.parameter_mapping,
+            **kwargs
+        )

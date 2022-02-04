@@ -1,0 +1,319 @@
+CRUISE_NO:
+  label: Cruise
+  var_type: METACRUISE
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+KEY:
+  label: Station
+  var_type: METASTATION
+  value_type: TEXT:15
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+SMTYP:
+  label: Type
+  var_type: METATYPE
+  value_type: TEXT:2
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+TIMESTAMP:
+  label: yyyy-mm-ddThh:mm:ss+mm:ss
+  var_type: METABASIC
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+LONGI:
+  label: Longitude [degrees_east]
+  var_type: METALONGITUDE
+  value_type: FLOAT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+LATIT:
+  label: Latitude [degrees_north]
+  var_type: METALATITUDE
+  value_type: FLOAT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+WADEP:
+  label: Bot. Depth [m]
+  var_type: METABOTDEPTH
+  value_type: FLOAT
+  qf_schema: ODV
+  comment:
+  significant_digits: 2
+SHIPC:
+  label: Platform Code [C17]
+  var_type: METAPLATFORM
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+SMCAT:
+  label: Device Category Code [L05]
+  var_type: METABASIC
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+DISTRIBUTOR:
+  label: Distributor Code [EDMO]
+  var_type: METABASIC
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+CUSTODIAN:
+  label: Custodian Code [EDMO]
+  var_type: METABASIC
+  value_type: INDEXED_TEXT
+  qf_schema: ODV
+  comment:
+  significant_digits: 0
+ORDERER:
+  label: Originator Code [EDMO]
+PROJ:
+  label: Project Code [EDMERP]
+DEPH:
+  label: DEPH [m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 1
+  is_primary_variable: F
+  comment: ""
+PRES_CTD:
+  label: PRES [dbar]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+TEMP_BTL:
+  label: TEMP [degC]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+TEMP_CTD:
+  label: TEMP [degC]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+SALT_BTL:
+  label: SALT [psu]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+SALT_CTD:
+  label: SALT [psu]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+CNDC_25:
+  label: CNDC [mS/m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+CNDC_CTD:
+  label: CNDC [mS/m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+DOXY_BTL:
+  label: DOXY [ml/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+DOXY_CTD:
+  label: DOXY [ml/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+FLUO_CTD:
+  label: FLUO [unitless]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+H2S:
+  label: H2S [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+PH:
+  label: PH [unitless]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+PH_LAB:
+  label: PH_LAB [unitless]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+PH_LAB_TEMP:
+  label: PH_LAB_TEMP [degC]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+ALKY:
+  label: ALKY [mmol/kg]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+PHOS:
+  label: PHOS [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+PTOT:
+  label: PTOT [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+NTRI:
+  label: NTRI [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+NTRA:
+  label: NTRA [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+NTRZ:
+  label: NTRZ [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+AMON:
+  label: AMON [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+NTOT:
+  label: NTOT [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+SIO3-SI:
+  label: SIO3-SI [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+HUMUS:
+  label: HUMUS [mg/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+CPHL:
+  label: CPHL [µg/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+DOC:
+  label: DOC [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+POC:
+  label: POC [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+TOC:
+  label: TOC [mg/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+PON:
+  label: PON [µmol/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+CURDIR:
+  label: CURDIR [decadeg]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 0
+  is_primary_variable: F
+  comment: ""
+CURVEL:
+  label: CURVEL [m/s]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+CDOM:
+  label: CDOM [1/m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+TURB:
+  label: TURB [FNU]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""

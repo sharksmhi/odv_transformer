@@ -1,46 +1,178 @@
 description: Writer for txt files according to ICES ODV format
 name: ices
 data_type: txt
-reader: !!python/name:odv_transformer.writers.ices.IcesOdvWriter ''
-meta:
-    prefix: //<MetaVariable>
-    suffix: </MetaVariable>
-    seperator: " "
-    variables:
+default_file_name: shark_odv_file_name.txt
+writer: !!python/name:odv_transformer.writers.ices.IcesOdvWriter ''
+meta_block_prefix: //
+meta_spec:
+  prefix: <MetaVariable>
+  suffix: </MetaVariable>
+  seperator: " "
+  mandatory:
+    - CRUISE_NO
+    - KEY
+    - SMTYP
+    - TIMESTAMP
+    - LONGI
+    - LATIT
+    - WADEP
+    - SHIPC
+    - SMCAT
+    - DISTRIBUTOR
+    - CUSTODIAN
+#    - ORDERER
+#    - PROJ
 
-data:
-    prefix: //<DataVariable>
-    suffix: </DataVariable>
-    variables:
-        "DEPH [m]"
-        "PRES [dbar]"
-        "TEMP [degC]"
-        "SALT [psu]"
-        "CNDC [mS/m]"
-        "DOXY [ml/l]"
-        "FLUO [unitless]"
-        "H2S [µmol/l]"
-        "PH [unitless]"
-        "PH_LAB [unitless]"
-        "PH_LAB_TEMP [degC]"
-        "ALKY [mmol/kg]"
-        "PHOS [µmol/l]"
-        "PTOT [µmol/l]"
-        "NTRI [µmol/l]"
-        "NTRA [µmol/l]"
-        "NTRZ [µmol/l]"
-        "AMON [µmol/l]"
-        "NTOT [µmol/l]"
-        "SIO3-SI [µmol/l]"
-        "HUMUS [mg/l]"
-        "CPHL [µg/l]"
-        "DOC [µmol/l]"
-        "POC [µmol/l]"
-        "TOC [mg/l]"
-        "PON [µmol/l]"
-        "CURDIR [decadeg]"
-        "CURVEL [m/s]"
-        "CDOM [1/m]"
-        "TURB [FNU]"
+data_spec:
+  prefix: <DataVariable>
+  suffix: </DataVariable>
+  seperator: " "
 
-mapping:
+mapping_ices_smhi:
+  BTL:
+    SMTYP: B
+    SMCAT: 30
+  CTD:
+    SMTYP: C
+    SMCAT: 130
+  TUBE:
+    SMTYP: "?"
+    SMCAT: "?"
+
+ices_mapping_spec:
+  DEPH:
+    LOCAL: DEPH
+    P01: "PRESPR01"
+    P06: "UPDB"
+  PRES_CTD:
+    LOCAL: PRES
+    P01: "TEST"
+    P06: "TEST"
+  TEMP_BTL:
+    LOCAL: TEMP
+    P01: "TEST"
+    P06: "TEST"
+  TEMP_CTD:
+    LOCAL: TEMP
+    P01: "TEST"
+    P06: "TEST"
+  SALT_BTL:
+    LOCAL: SALT
+    P01: "TEST"
+    P06: "TEST"
+  SALT_CTD:
+    LOCAL: SALT
+    P01: "TEST"
+    P06: "TEST"
+  CNDC_25:
+    LOCAL: CNDC
+    P01: "TEST"
+    P06: "TEST"
+  CNDC_CTD:
+    LOCAL: CNDC
+    P01: "TEST"
+    P06: "TEST"
+  DOXY_BTL:
+    LOCAL: DOXY
+    P01: "TEST"
+    P06: "TEST"
+  DOXY_CTD:
+    LOCAL: DOXY
+    P01: "TEST"
+    P06: "TEST"
+  FLUO_CTD:
+    LOCAL: FLUO
+    P01: "TEST"
+    P06: "TEST"
+  H2S:
+    LOCAL: H2S
+    P01: "TEST"
+    P06: "TEST"
+  PH:
+    LOCAL: PH
+    P01: "TEST"
+    P06: "TEST"
+  PH_LAB:
+    LOCAL: PH_LAB
+    P01: "TEST"
+    P06: "TEST"
+  PH_LAB_TEMP:
+    LOCAL: PH_LAB_TEMP
+    P01: "TEST"
+    P06: "TEST"
+  ALKY:
+    LOCAL: ALKY
+    P01: "TEST"
+    P06: "TEST"
+  PHOS:
+    LOCAL: PHOS
+    P01: "TEST"
+    P06: "TEST"
+  PTOT:
+    LOCAL: PTOT
+    P01: "TEST"
+    P06: "TEST"
+  NTRI:
+    LOCAL: NTRI
+    P01: "TEST"
+    P06: "TEST"
+  NTRA:
+    LOCAL: NTRA
+    P01: "TEST"
+    P06: "TEST"
+  NTRZ:
+    LOCAL: NTRZ
+    P01: "TEST"
+    P06: "TEST"
+  AMON:
+    LOCAL: AMON
+    P01: "TEST"
+    P06: "TEST"
+  NTOT:
+    LOCAL: NTOT
+    P01: "TEST"
+    P06: "TEST"
+  SIO3-SI:
+    LOCAL: SIO3-SI
+    P01: "TEST"
+    P06: "TEST"
+  HUMUS:
+    LOCAL: HUMUS
+    P01: "TEST"
+    P06: "TEST"
+  CPHL:
+    LOCAL: CPHL
+    P01: "TEST"
+    P06: "TEST"
+  DOC:
+    LOCAL: DOC
+    P01: "TEST"
+    P06: "TEST"
+  POC:
+    LOCAL: POC
+    P01: "TEST"
+    P06: "TEST"
+  TOC:
+    LOCAL: TOC
+    P01: "TEST"
+    P06: "TEST"
+  PON:
+    LOCAL: PON
+    P01: "TEST"
+    P06: "TEST"
+  CURDIR:
+    LOCAL: CURDIR
+    P01: "TEST"
+    P06: "TEST"
+  CURVEL:
+    LOCAL: CURVEL
+    P01: "TEST"
+    P06: "TEST"
+  CDOM:
+    LOCAL: CDOM
+    P01: "TEST"
+    P06: "TEST"
+  TURB:
+    LOCAL: TURB
+    P01: "TEST"
+    P06: "TEST"

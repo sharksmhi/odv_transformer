@@ -9,7 +9,7 @@ Created on 2022-02-03 09:17
 from abc import ABC
 
 
-class Reader(ABC):
+class ReaderBase(ABC):
     """Base Reader."""
 
     def __init__(self):
