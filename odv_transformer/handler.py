@@ -33,8 +33,9 @@ def get_cruise(x):
 
 
 class Frame(pd.DataFrame, ABC):
-    """Stores data from one, and only one, element
-    (usually an excel sheet or a txt file).
+    """Stores data from one, and only one, element.
+
+    'Element' is usually an excel sheet or a txt file.
     """
 
     @property

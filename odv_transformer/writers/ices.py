@@ -6,8 +6,6 @@ Created on 2022-02-02 18:22
 
 @author: johannes
 """
-import pandas as pd
-
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
@@ -15,6 +13,7 @@ class IcesOdvWriter(WriterBase):
     """Convert NODC format into ICES ODV delivery format."""
 
     def __init__(self, *args, **kwargs):
+        """Initialize."""
         self.meta_block_prefix = None
         self.meta_spec = None
         self.data_spec = None
