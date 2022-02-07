@@ -86,8 +86,22 @@ DEPH:
   significant_digits: 1
   is_primary_variable: F
   comment: ""
+PRES:
+  label: PRES [dbar]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
 PRES_CTD:
   label: PRES [dbar]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+TEMP:
+  label: TEMP [degC]
   value_type: FLOAT
   qf_schema: ODV
   significant_digits: 3
@@ -102,6 +116,13 @@ TEMP_BTL:
   comment: ""
 TEMP_CTD:
   label: TEMP [degC]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+SALT:
+  label: SALT [psu]
   value_type: FLOAT
   qf_schema: ODV
   significant_digits: 4
@@ -128,11 +149,25 @@ CNDC_25:
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+CNDC:
+  label: CNDC [mS/m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 3
+  is_primary_variable: F
+  comment: ""
 CNDC_CTD:
   label: CNDC [mS/m]
   value_type: FLOAT
   qf_schema: ODV
   significant_digits: 3
+  is_primary_variable: F
+  comment: ""
+DOXY:
+  label: DOXY [ml/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
   is_primary_variable: F
   comment: ""
 DOXY_BTL:
@@ -144,6 +179,13 @@ DOXY_BTL:
   comment: ""
 DOXY_CTD:
   label: DOXY [ml/l]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+FLUO:
+  label: FLUO [unitless]
   value_type: FLOAT
   qf_schema: ODV
   significant_digits: 4
