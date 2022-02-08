@@ -42,7 +42,7 @@ class Frame(pd.DataFrame, ABC):
     def _constructor(self):
         """Construct Frame.
 
-        Constructor for Frame, overides method in pandas.DataFrame.
+        Constructor for Frame, overrides method in pandas.DataFrame.
         """
         return Frame
 

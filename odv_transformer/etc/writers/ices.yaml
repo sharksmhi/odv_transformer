@@ -28,179 +28,179 @@ data_spec:
   suffix: </DataVariable>
   seperator: " "
 
-mapping_ices_smhi:
-  BTL:
-    SMTYP: B
-    SMCAT: 30
-  CTD:
-    SMTYP: C
-    SMCAT: 130
-  TUBE:
-    SMTYP: "?"
-    SMCAT: "?"
+#mapping_ices_smhi:
+#  BTL:
+#    SMTYP: B
+#    SMCAT: 30
+#  CTD:
+#    SMTYP: C
+#    SMCAT: 130
+#  TUBE:
+#    SMTYP: "?"
+#    SMCAT: "?"
 
 ices_mapping_spec:
   SECCHI:
     LOCAL: SECCHI
-    P01: "TEST"
-    P06: "TEST"
+    P01: SECCSDNX
+    P06: ULAA
   DEPH:
     LOCAL: DEPH
-    P01: "PRESPR01"
-    P06: "UPDB"
+    P01: ADEPZZ01
+    P06: ULAA
   PRES:
     LOCAL: PRES
-    P01: "TEST"
-    P06: "TEST"
+    P01: PRESPR01
+    P06: UPDB
   PRES_CTD:
     LOCAL: PRES
-    P01: "TEST"
-    P06: "TEST"
+    P01: PRESPR01
+    P06: UPDB
   TEMP:
     LOCAL: TEMP
-    P01: "TEST"
-    P06: "TEST"
+    P01: TEMPPR01
+    P06: UPAA
   TEMP_BTL:
     LOCAL: TEMP
-    P01: "TEST"
-    P06: "TEST"
+    P01: TEMPPR01
+    P06: UPAA
   TEMP_CTD:
     LOCAL: TEMP
-    P01: "TEST"
-    P06: "TEST"
+    P01: TEMPPR01
+    P06: UPAA
   SALT:
     LOCAL: SALT
-    P01: "TEST"
-    P06: "TEST"
+    P01: PSALPR01
+    P06: UUUU
   SALT_BTL:
     LOCAL: SALT
-    P01: "TEST"
-    P06: "TEST"
+    P01: PSALPR01
+    P06: UUUU
   SALT_CTD:
     LOCAL: SALT
-    P01: "TEST"
-    P06: "TEST"
+    P01: PSALST01  # do we need to keep SALT_BTL and SALT_CTD instead of only SALT?
+    P06: UUUU
   CNDC_25:
     LOCAL: CNDC
-    P01: "TEST"
-    P06: "TEST"
+    P01: CNDCZZ01
+    P06: MSPM
   CNDC:
     LOCAL: CNDC
-    P01: "TEST"
-    P06: "TEST"
+    P01: CNDCZZ01
+    P06: MSPM
   CNDC_CTD:
     LOCAL: CNDC
-    P01: "TEST"
-    P06: "TEST"
+    P01: CNDCZZ01
+    P06: MSPM
   DOXY:
     LOCAL: DOXY
-    P01: "TEST"
-    P06: "TEST"
+    P01: DOXYZZXX
+    P06: UMLL
   DOXY_BTL:
     LOCAL: DOXY
-    P01: "TEST"
-    P06: "TEST"
+    P01: DOXYZZXX
+    P06: UMLL
   DOXY_CTD:
     LOCAL: DOXY
-    P01: "TEST"
-    P06: "TEST"
-  FLUO:
-    LOCAL: FLUO
-    P01: "TEST"
-    P06: "TEST"
-  FLUO_CTD:
-    LOCAL: FLUO
-    P01: "TEST"
-    P06: "TEST"
+    P01: DOXYZZXX
+    P06: UMLL
+#  FLUO:
+#    LOCAL: FLUO
+#    P01: "TEST"
+#    P06: UUUU
+#  FLUO_CTD:
+#    LOCAL: FLUO
+#    P01: "TEST"
+#    P06: UUUU
   H2S:
     LOCAL: H2S
-    P01: "TEST"
-    P06: "TEST"
+    P01: H2SXZZXX
+    P06: UPOX
   PH:
     LOCAL: PH
-    P01: "TEST"
-    P06: "TEST"
+    P01: PHXXZZXX
+    P06: UUPH
   PH_LAB:
     LOCAL: PH_LAB
-    P01: "TEST"
-    P06: "TEST"
+    P01: PHXXZZXX
+    P06: UUPH
   PH_LAB_TEMP:
     LOCAL: PH_LAB_TEMP
-    P01: "TEST"
-    P06: "TEST"
+    P01: PHTXPR01
+    P06: UPAA
   ALKY:
     LOCAL: ALKY
-    P01: "TEST"
-    P06: "TEST"
+    P01: MDMAP014
+    P06: MMKG
   PHOS:
     LOCAL: PHOS
-    P01: "TEST"
-    P06: "TEST"
+    P01: PHOSZZXX
+    P06: UPOX
   PTOT:
     LOCAL: PTOT
-    P01: "TEST"
-    P06: "TEST"
+    P01: TPHSZZXX
+    P06: UPOX
   NTRI:
     LOCAL: NTRI
-    P01: "TEST"
-    P06: "TEST"
+    P01: NTRIZZXX
+    P06: UPOX
   NTRA:
     LOCAL: NTRA
-    P01: "TEST"
-    P06: "TEST"
+    P01: NTRAZZXX
+    P06: UPOX
   NTRZ:
     LOCAL: NTRZ
-    P01: "TEST"
-    P06: "TEST"
+    P01: NTRZXXDZ
+    P06: UPOX
   AMON:
     LOCAL: AMON
-    P01: "TEST"
-    P06: "TEST"
+    P01: AMONZZXX
+    P06: UPOX
   NTOT:
     LOCAL: NTOT
-    P01: "TEST"
-    P06: "TEST"
+    P01: NTOTZZXX
+    P06: UPOX
   SIO3-SI:
     LOCAL: SIO3-SI
-    P01: "TEST"
-    P06: "TEST"
-  HUMUS:
-    LOCAL: HUMUS
-    P01: "TEST"
-    P06: "TEST"
+    P01: SLCAZZXX
+    P06: UPOX
+#  HUMUS:
+#    LOCAL: HUMUS
+#    P01: "TEST"
+#    P06: UMGL
   CPHL:
     LOCAL: CPHL
-    P01: "TEST"
-    P06: "TEST"
+    P01: CPHLZZXX
+    P06: UMMC
   DOC:
     LOCAL: DOC
-    P01: "TEST"
-    P06: "TEST"
+    P01: CORGZZZX
+    P06: UPOX
   POC:
     LOCAL: POC
-    P01: "TEST"
-    P06: "TEST"
+    P01: MDMAP010
+    P06: UPOX
   TOC:
     LOCAL: TOC
-    P01: "TEST"
-    P06: "TEST"
+    P01: CORGZZTL
+    P06: UMGL
   PON:
     LOCAL: PON
-    P01: "TEST"
-    P06: "TEST"
-  CURDIR:
-    LOCAL: CURDIR
-    P01: "TEST"
-    P06: "TEST"
-  CURVEL:
-    LOCAL: CURVEL
-    P01: "TEST"
-    P06: "TEST"
-  CDOM:
-    LOCAL: CDOM
-    P01: "TEST"
-    P06: "TEST"
+    P01: NTOTZZZZ
+    P06: UPOX
+#  CURDIR:
+#    LOCAL: CURDIR
+#    P01: "TEST"
+#    P06: "TEST"
+#  CURVEL:
+#    LOCAL: CURVEL
+#    P01: "TEST"
+#    P06: "TEST"
+#  CDOM:
+#    LOCAL: CDOM
+#    P01: "-"
+#    P06: "-"
   TURB:
     LOCAL: TURB
-    P01: "TEST"
-    P06: "TEST"
+    P01: TURBXXXX
+    P06: USTU
