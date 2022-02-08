@@ -73,10 +73,32 @@ class Frame(pd.DataFrame, ABC):
                 cols_to_drop.add(key)
         self.drop(columns=cols_to_drop, inplace=True)
 
+    def delete_rows_with_no_data(self):
+        """Delete rows without any data."""
+        self.replace('', float('nan'), inplace=True)
+        self.dropna(
+            subset=self.data_columns_incl_flags,
+            inplace=True,
+            how='all'
+        )
+        self.replace(float('nan'), '', inplace=True)
+        self.reset_index(drop=True, inplace=True)
+
     @property
     def data_columns(self):
         """Return data columns (not metadata- or quality flag-columns)."""
         return ['DEPH'] + [c[2:] for c in self.quality_flag_columns]
+
+    @property
+    def data_columns_incl_flags(self):
+        """Return metadata columns."""
+        return self.data_columns[1:] + self.quality_flag_columns
+
+    @property
+    def meta_columns(self):
+        """Return metadata columns."""
+        return [c for c in self.columns
+                if c not in self.data_columns_incl_flags]
 
     @property
     def quality_flag_columns(self):
@@ -115,9 +137,39 @@ class DataFrames(dict):
         if name == 'data':
             self[name].convert_formats()
             self[name].delete_empty_columns()
-            # self[name].delete_series_with_no_data()
             self[name].add_meta_columns()
+            self.divide_on_smtyp(name)
+            self[name].delete_rows_with_no_data()
             # self[name].translation()
+
+    def divide_on_smtyp(self, name):
+        """Divide dataframe based on sampling type (SMTYP)."""
+        df_cdf = None
+        ctd_cols = [c for c in self[name].columns if '_CTD' in c]
+        if ctd_cols:
+            frame_cols = self[name].meta_columns + ctd_cols
+            df_cdf = self[name].loc[:, frame_cols].copy()
+            df_cdf.rename(
+                columns={c: c.replace('_CTD', '') for c in ctd_cols},
+                inplace=True
+            )
+            self[name].drop(columns=ctd_cols, inplace=True)
+            df_cdf['SMTYP'] = 'C'
+            df_cdf['SMCAT'] = '130'
+
+        self[name].rename(
+            columns={c: c.replace('_BTL', '') for c in self[name].columns},
+            inplace=True
+        )
+        self[name]['SMTYP'] = 'B'
+        self[name]['SMCAT'] = '30'
+        if ctd_cols:
+            for c in ctd_cols:
+                valid_col = c.replace('_CTD', '')
+                if valid_col not in self[name]:
+                    self[name][valid_col] = ''
+
+            self[name] = self[name].append(df_cdf, ignore_index=True)
 
 
 class MultiDeliveries(dict):

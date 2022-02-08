@@ -6,8 +6,9 @@ Created on 2022-02-02 17:56
 
 @author: johannes
 
-Using ICES ODV template for data deliveries.
+ICES ODV template for data deliveries.
 - https://www.ices.dk/data/data-portals/Pages/ocean-submit.aspx
+
 """
 from odv_transformer.config import Settings
 from odv_transformer.handler import DataFrames, MultiDeliveries
@@ -85,7 +86,8 @@ class Session:
             writer (str): Using the given writer to write log to file.
                           Available writers can be found in
                           self.settings.list_of_writers
-            **kwargs (dict): kwargs to pass on to writer.
+            delivery_name (str): Name of the delivery write
+            **kwargs (dict): kwargs to pass on to writer
         """
         if not writer:
             raise ValueError(

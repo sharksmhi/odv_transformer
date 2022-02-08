@@ -10,9 +10,9 @@ from odv_transformer import Session
 if __name__ == "__main__":
     s = Session()
 
-    arch = r'C:\PhysicalChemical\2021\SHARK_PhysicalChemical_2021_EXT_SMHI'
+    arch_name = 'SHARK_PhysicalChemical_2021_EXT_SMHI'
     s.read(
-        arch,
+        s.settings.base_directory.joinpath('tests', 'test_data', arch_name),
         reader='phyche_archive',
         delivery_name='SHARK_PhysicalChemical_2021_EXT_SMHI',
     )

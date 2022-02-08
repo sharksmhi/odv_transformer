@@ -1,0 +1,31 @@
+PARAM	VALIDFR	VALIDTO	SMTYP	REFSK_SMP	COMNT_SMPM	SLABO	ACKR_SMP
+NTOT	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+PTOT	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+NTRZ	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+NTRI	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+NTRA	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+PHOS	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+SIO3-SI	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+AMON	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+TEMP_BTL	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+SALT_BTL	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+DOXY_BTL	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+H2S	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+PH	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+PH_LAB_TEMP	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+PH_LAB	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+ALKY	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+HUMUS	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+CPHL	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	12/24 bottle HydroBios Rosett. Niskin bottle	SMHI	Y
+CPHL	2014-01-01	2020-12-31	HOS	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Hose	SMHI	Y
+POC	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Niskin bottle	SMHI	Y
+PON	2014-01-01	2020-12-31	HYD-PWS, NSK	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Niskin bottle	SMHI	Y
+TEMP_CTD	2014-01-01	2020-12-31	CTD	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/, SeaBird	CTD	SMHI	Y
+SALT_CTD	2014-01-01	2020-12-31	CTD	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/, SeaBird	CTD	SMHI	Y
+DOXY_CTD	2014-01-01	2020-12-31	CTD, OXS	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/, SeaBird	CTD	SMHI	N
+DEPH	2014-01-01	2020-12-31	CTD	SMHI platform manual	CTD	SMHI	Y
+CHLFL	2014-01-01	2020-12-31	CTD, FLM	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/, SeaBird	CTD	SMHI	N
+TURB	2014-01-01	2020-12-31	CTD, FLM	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/, SeaBird	CTD	SMHI	N
+SECCHI	2014-01-01	2020-12-31	SECCI	SMHI platform manual		SMHI	N
+DEPTH_CTD
+FLUO_CTD

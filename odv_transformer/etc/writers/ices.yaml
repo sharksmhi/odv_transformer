@@ -40,12 +40,24 @@ mapping_ices_smhi:
     SMCAT: "?"
 
 ices_mapping_spec:
+  SECCHI:
+    LOCAL: SECCHI
+    P01: "TEST"
+    P06: "TEST"
   DEPH:
     LOCAL: DEPH
     P01: "PRESPR01"
     P06: "UPDB"
+  PRES:
+    LOCAL: PRES
+    P01: "TEST"
+    P06: "TEST"
   PRES_CTD:
     LOCAL: PRES
+    P01: "TEST"
+    P06: "TEST"
+  TEMP:
+    LOCAL: TEMP
     P01: "TEST"
     P06: "TEST"
   TEMP_BTL:
@@ -54,6 +66,10 @@ ices_mapping_spec:
     P06: "TEST"
   TEMP_CTD:
     LOCAL: TEMP
+    P01: "TEST"
+    P06: "TEST"
+  SALT:
+    LOCAL: SALT
     P01: "TEST"
     P06: "TEST"
   SALT_BTL:
@@ -68,8 +84,16 @@ ices_mapping_spec:
     LOCAL: CNDC
     P01: "TEST"
     P06: "TEST"
+  CNDC:
+    LOCAL: CNDC
+    P01: "TEST"
+    P06: "TEST"
   CNDC_CTD:
     LOCAL: CNDC
+    P01: "TEST"
+    P06: "TEST"
+  DOXY:
+    LOCAL: DOXY
     P01: "TEST"
     P06: "TEST"
   DOXY_BTL:
@@ -78,6 +102,10 @@ ices_mapping_spec:
     P06: "TEST"
   DOXY_CTD:
     LOCAL: DOXY
+    P01: "TEST"
+    P06: "TEST"
+  FLUO:
+    LOCAL: FLUO
     P01: "TEST"
     P06: "TEST"
   FLUO_CTD:
