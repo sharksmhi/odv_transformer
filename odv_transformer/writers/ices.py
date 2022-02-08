@@ -114,8 +114,11 @@ class IcesOdvWriter(WriterBase):
 
         col_order = self.meta_spec['mandatory'].copy()
         col_order.extend(
-            [c for c in df.columns if c not in col_order and
-             c in self.pmap and c in self.ices_mapping_spec]
+            [
+                c for c in df.columns if
+                c not in col_order and c in self.pmap and
+                c in self.ices_mapping_spec
+            ]
         )
         df = df[col_order].rename(columns=mapper)
 
