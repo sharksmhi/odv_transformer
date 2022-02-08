@@ -79,6 +79,13 @@ ORDERER:
   label: Originator Code [EDMO]
 PROJ:
   label: Project Code [EDMERP]
+SECCHI:
+  label: SECCHI [m]
+  value_type: FLOAT
+  qf_schema: ODV
+  significant_digits: 1
+  is_primary_variable: F
+  comment: ""
 DEPH:
   label: DEPH [m]
   value_type: FLOAT

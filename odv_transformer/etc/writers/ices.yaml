@@ -40,6 +40,10 @@ mapping_ices_smhi:
     SMCAT: "?"
 
 ices_mapping_spec:
+  SECCHI:
+    LOCAL: SECCHI
+    P01: "TEST"
+    P06: "TEST"
   DEPH:
     LOCAL: DEPH
     P01: "PRESPR01"

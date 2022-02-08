@@ -81,6 +81,7 @@ class Frame(pd.DataFrame, ABC):
             inplace=True,
             how='all'
         )
+        self.replace(float('nan'), '', inplace=True)
         self.reset_index(drop=True, inplace=True)
 
     @property

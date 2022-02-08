@@ -1,0 +1,30 @@
+PARAM	VALIDFR	VALIDTO	METOA	REFSK_ANA	MET_COMNT	UNCERT	METCU	LMQNT	DETLI	RANA	ALABO	ACKR_ANA
+NTOT	1991-08-13	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	0.14	ISO11352	5		5.00-100	SMHI	Y
+PTOT	1991-08-13	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	0.27	ISO11352	0.3		0.30-50	SMHI	Y
+NTRZ	1991-01-01	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	7% 0.10-1.50 µM, 4% 1.50-50 µM	ISO11352	0.1		0.10-100	SMHI	Y
+NTRI	1991-01-01	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	11% 0.02-0.20µM, 3% 0.20-10.0µM	ISO11352	0.02		0.02-50	SMHI	Y
+NTRA	1991-01-01	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	Calculated	ISO11352	0.1		0.10-50	SMHI	Y
+PHOS	1991-01-01	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	12% 0.02-0.20 µM , 4% 0.20-10 µM	ISO11352	0.02		0.02-50	SMHI	Y
+SIO3-SI	1991-01-01	2020-12-31	SPEC	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Segmenterad flödesanalys med spektrofotometrisk detektion. Accredited since 1994.	8% 0.1-5.0 µM, 3% 5.0-200 µM	ISO11352	0.1		0.1-400	SMHI	Y
+AMON	1991-01-01	2013-12-31	SPEC	Grasshoff, K., K. Kremling & Ehrhardt, edt, (1976) Method of Seawater Analysis. 3rd edition Wiley-VCH,	 Accredited since 1994.							Y
+AMON	2014-01-01	2020-12-31	FLM	Kérouel R, Aminot A (1997) Fluorometric determination of ammonia in sea and estuarine waters by direct segmented flow analysis. Maine chemistry 57, 257-265l.	Segmenterad flödesanalys med spektrofotometrisk detektion.  Accredited since 1994.	0.07	ISO11352	0.2		0.20-100	SMHI	Y
+TEMP_BTL	1991-01-01	2004-12-31	THR									
+TEMP_BTL	2005-01-01	2020-12-31	THR	Sea Turtle, Version 2.02-3.02. Users guide, Ocean Origo AB Göteborg	Omvändningstermometer på vattenhämtare. Accredited since 1994.			-2		-2-35	SMHI	Y
+SALT_BTL	1991-01-01	2020-12-31	CND	OSIL (1991) Laboratory Measurement of Salinity	Conductometric analysis.  Accredited since 1994.	0.05	ISO11352	2		2.000-36.000	SMHI	Y
+DOXY_BTL	2014-01-01	2020-12-31	WINK	Winkler method with automated titration. Metrohm titrator.	Winkler .  Accredited since 1994.	0.05	ISO11352	0.1		0.10-15	SMHI	Y
+H2S	1991-01-01	2020-12-31	SPEC	Grasshoff, K., K. Kremling & Ehrhardt, edt, (1976) Method of Seawater Analysis. 2nd edition Wiley-VCH,	Spectrofotometrisk metod	0.09	ISO11352	4		4-300	SMHI	Y
+PH	1993-01-01	2020-12-31	PH	Gieskes J. M. (1969) Effect of temperature on the pH of seawater.	pH elektrod, elektoden kalibreras med NIST-buffert. pH mäts vid 25 °C	0.06 enheter	ISO11352			7.00-9.00	SMHI	Y
+PH_LAB	1993-01-01	2020-12-31	PH	SS-EN ISO 10523:2012	pH elektrod, elektoden kalibreras med NIST-buffert. pH mäts vid 25 °C	0.06 enheter	ISO11352			7.00-9.00	SMHI	Y
+PH_LAB_TEMP	1993-01-01	2020-12-31	THR	SS-EN ISO 10523:2012	Temperaturmätning efter temperering av pH-prover						SMHI	Y
+ALKY	1993-01-01	2020-12-31	PH	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Totalalkalinitet med granpunktsbestämning. Automatisk titrering med instrument från Metrohm.	0.03	ISO11352	0.5		0.500-3.000	SMHI	Y
+HUMUS	1991-01-01	2020-12-31	FLM	M. Wedborg, A. Skoog, E. Fogelqvist (1994): Organic carbon and humic substances in the Baltic Sea, The Kattegatt and the Skagerrak. Humic substances in the global environment. Eds N. Sensei and T. M Miano, Elsevier. A, Skoog (1995) Organic and humic substances in the marine environment. Doktorsavhandling, Institutionen för analytisk och marin kemi, Göteborgs Universitet	Fluorometrisk metod. Kalibrering mot kininsulfat						SMHI	N
+POC	2003-01-01	2020-12-31	CNA	Grasshoff, K., K. Kremling & Ehrhardt, edt, (1999) Method of Seawater Analysis. 3rd edition Wiley-VCH, Operating manual Flash EA 1112 Elemental Analazer Thermo Electron Company, Niuwenhuize, j., Y. E. M, Maas, J. J Middelburg. (1994) Rapid analysis of organic carbon and nitrogen in particulate materials. Marine Chemistry 45, 217-224.	combustion method	0.3	ISO11352	7		7.00-100	SMHI	Y
+PON	2003-01-01	2020-12-31	CNA	Grasshoff, K., K. Kremling & Ehrhardt, edt, (1999) Method of Seawater Analysis. 3rd edition Wiley-VCH, Operating manual Flash EA 1112 Elemental Analazer Thermo Electron Company, Niuwenhuize, j., Y. E. M, Maas, J. J Middelburg. (1994) Rapid analysis of organic carbon and nitrogen in particulate materials. Marine Chemistry 45, 217-224.	combustion method	0.3	ISO11352	0.7		0.7-20	SMHI	Y
+TEMP_CTD	1991-01-01	2020-12-31	THR	SeaBird	SeaBird	0.1°C	ISO11352			-1.5-32.5	SMHI	Y
+SALT_CTD	1991-01-01	2020-12-31	CND	SeaBird	Conductometric analysis					2.00-35.00	SMHI	Y
+DOXY_CTD	2009-01-01	2020-12-31	OXE	SeaBird	SeaBird					0.2-11	SMHI	N
+CPHL	1991-01-01	1994-04-30	SPEC									
+CPHL	1994-05-01	2020-12-31	FLM	Helcom Guidelines, https://helcom.fi/helcom-at-work/publications/manuals-and-guidelines/	Fluorometrisk metod.	20% 0.2-1.0 µg/l, 12% 1.0-100 µg/l	ISO11352	0.2		0.2-100	SMHI	Y
+CHLFL	2011-01-01	2020-12-31	FLM	SeaBird	Fluorometrisk metod.					0-50	SMHI	N
+DEPTH_CTD
+FLUO_CTD

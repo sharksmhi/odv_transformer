@@ -1,0 +1,12 @@
+beskrivning av datasetet: SMHI utsjöverksamhet
+beställare: HAV,SMHI
+data kontrollerad av: Leverantör
+datatyp: Physical and Chemical
+format: PhysicalChemical:SHARKarchive
+kommentar: 
+kontaktperson: Anna Willstrand Wranne
+projekt: BAS,NAT
+provtagningsår: 2021
+rapporterande institut: SMHI
+status: prod
+övervakningsprogram: NATL
