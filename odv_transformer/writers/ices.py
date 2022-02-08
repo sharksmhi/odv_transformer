@@ -65,6 +65,8 @@ class IcesOdvWriter(WriterBase):
         """Add data variables to self.data_serie."""
         row = '{}=\"{}\"'
         for para in df.data_columns:
+            if para not in self.ices_mapping_spec:
+                continue
             self.data_serie.append(
                 ''.join(
                     (
@@ -89,6 +91,8 @@ class IcesOdvWriter(WriterBase):
             self.meta_block_prefix + 'ICES_parameter_mapping'
         )
         for para in df.data_columns:
+            if para not in self.ices_mapping_spec:
+                continue
             para_args = []
             for k, v in self.ices_mapping_spec[para].items():
                 para_args.append(k)
@@ -107,9 +111,10 @@ class IcesOdvWriter(WriterBase):
         """Add data table to self.data_serie."""
         mapper = {c: self.pmap[c]['label']
                   for c in df.columns if c in self.pmap}
+
         col_order = self.meta_spec['mandatory'].copy()
         col_order.extend(
-            [c for c in df.columns if c not in col_order and c in self.pmap]
+            [c for c in df.columns if c not in col_order and self._in_map(c)]
         )
         df = df[col_order].rename(columns=mapper)
 
@@ -117,3 +122,13 @@ class IcesOdvWriter(WriterBase):
         self.data_serie.extend(
             df.apply(lambda x: '\t'.join(x), axis=1).to_list()
         )
+
+    def _in_map(self, name):
+        """Return bool.
+
+        Check if name exists in writer mapping attributes.
+        """
+        if name in self.pmap and name in self.ices_mapping_spec:
+            return True
+        else:
+            return False
