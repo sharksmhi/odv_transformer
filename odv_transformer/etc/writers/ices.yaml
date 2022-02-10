@@ -8,9 +8,10 @@ meta_spec:
   prefix: <MetaVariable>
   suffix: </MetaVariable>
   seperator: " "
-  mandatory:
+  columns:
     - CRUISE_NO
     - KEY
+    - STATN
     - SMTYP
     - TIMESTAMP
     - LONGI
@@ -22,6 +23,7 @@ meta_spec:
     - CUSTODIAN
 #    - ORDERER
 #    - PROJ
+    - SECCHI
 
 data_spec:
   prefix: <DataVariable>
@@ -120,10 +122,10 @@ ices_mapping_spec:
     LOCAL: PH
     P01: PHXXZZXX
     P06: UUPH
-  PH_LAB:
-    LOCAL: PH_LAB
-    P01: PHXXZZXX
-    P06: UUPH
+#  PH_LAB:
+#    LOCAL: PH_LAB
+#    P01: PHXXZZXX
+#    P06: UUPH
   PH_LAB_TEMP:
     LOCAL: PH_LAB_TEMP
     P01: PHTXPR01

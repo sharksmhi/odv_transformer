@@ -2,77 +2,72 @@ CRUISE_NO:
   label: Cruise
   var_type: METACRUISE
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 KEY:
   label: Station
   var_type: METASTATION
   value_type: TEXT:15
-  qf_schema: ODV
+  comment:
+  significant_digits: 0
+STATN:
+  label: Reported station name
+  var_type: METASTATIONNAME
+  value_type: TEXT:30
   comment:
   significant_digits: 0
 SMTYP:
   label: Type
   var_type: METATYPE
   value_type: TEXT:2
-  qf_schema: ODV
   comment:
   significant_digits: 0
 TIMESTAMP:
-  label: yyyy-mm-ddThh:mm:ss+mm:ss
+  label: yyyy-mm-ddThh:mm:ss.sss
   var_type: METABASIC
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
-  significant_digits: 0
+  significant_digits: 3
 LONGI:
   label: Longitude [degrees_east]
   var_type: METALONGITUDE
   value_type: FLOAT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 LATIT:
   label: Latitude [degrees_north]
   var_type: METALATITUDE
   value_type: FLOAT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 WADEP:
   label: Bot. Depth [m]
   var_type: METABOTDEPTH
   value_type: FLOAT
-  qf_schema: ODV
   comment:
   significant_digits: 2
 SHIPC:
   label: Platform Code [C17]
   var_type: METAPLATFORM
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 SMCAT:
   label: Device Category Code [L05]
   var_type: METABASIC
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 DISTRIBUTOR:
   label: Distributor Code [EDMO]
   var_type: METABASIC
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 CUSTODIAN:
   label: Custodian Code [EDMO]
   var_type: METABASIC
   value_type: INDEXED_TEXT
-  qf_schema: ODV
   comment:
   significant_digits: 0
 ORDERER:
@@ -81,288 +76,369 @@ PROJ:
   label: Project Code [EDMERP]
 SECCHI:
   label: SECCHI [m]
+  var_type: METASECCHI
   value_type: FLOAT
-  qf_schema: ODV
-  significant_digits: 1
+  qf_schema: SMHI
+  significant_digits: 2
   is_primary_variable: F
   comment: ""
+Q_SECCHI:
+  label: QV:SMHI:SECCHI [m]
 DEPH:
   label: DEPH [m]
   value_type: FLOAT
-  qf_schema: ODV
-  significant_digits: 1
+  qf_schema: SMHI
+  significant_digits: 2
   is_primary_variable: F
   comment: ""
 PRES:
   label: PRES [dbar]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_PRES:
+  label: QV:SMHI:PRES [dbar]
 PRES_CTD:
   label: PRES [dbar]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_PRES_CTD:
+  label: QV:SMHI:PRES [dbar]
 TEMP:
   label: TEMP [degC]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_TEMP:
+  label: QV:SMHI:TEMP [degC]
 TEMP_BTL:
   label: TEMP [degC]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_TEMP_BTL:
+  label: QV:SMHI:TEMP [degC]
 TEMP_CTD:
   label: TEMP [degC]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_TEMP_CTD:
+  label: QV:SMHI:TEMP [degC]
 SALT:
   label: SALT [psu]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_SALT:
+  label: QV:SMHI:SALT [psu]
 SALT_BTL:
   label: SALT [psu]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_SALT_BTL:
+  label: QV:SMHI:SALT [psu]
 SALT_CTD:
   label: SALT [psu]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_SALT_CTD:
+  label: QV:SMHI:SALT [psu]
 CNDC_25:
   label: CNDC [mS/m]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_CNDC_25:
+  label: QV:SMHI:CNDC [mS/m]
 CNDC:
   label: CNDC [mS/m]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_CNDC:
+  label: QV:SMHI:CNDC [mS/m]
 CNDC_CTD:
   label: CNDC [mS/m]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_CNDC_CTD:
+  label: QV:SMHI:CNDC [mS/m]
 DOXY:
   label: DOXY [ml/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_DOXY:
+  label: QV:SMHI:DOXY [ml/l]
 DOXY_BTL:
   label: DOXY [ml/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_DOXY_BTL:
+  label: QV:SMHI:DOXY [ml/l]
 DOXY_CTD:
   label: DOXY [ml/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_DOXY_CTD:
+  label: QV:SMHI:DOXY [ml/l]
 FLUO:
   label: FLUO [unitless]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_FLUO:
+  label: QV:SMHI:FLUO [unitless]
 FLUO_CTD:
   label: FLUO [unitless]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_FLUO_CTD:
+  label: QV:SMHI:FLUO [unitless]
 H2S:
   label: H2S [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_H2S:
+  label: QV:SMHI:H2S [µmol/l]
 PH:
   label: PH [unitless]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_PH:
+  label: QV:SMHI:PH [unitless]
 PH_LAB:
   label: PH_LAB [unitless]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_PH_LAB:
+  label: QV:SMHI:PH_LAB [unitless]
 PH_LAB_TEMP:
   label: PH_LAB_TEMP [degC]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_PH_LAB_TEMP:
+  label: QV:SMHI:PH_LAB_TEMP [degC]
 ALKY:
   label: ALKY [mmol/kg]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_ALKY:
+  label: QV:SMHI:ALKY [mmol/kg]
 PHOS:
   label: PHOS [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_PHOS:
+  label: QV:SMHI:PHOS [µmol/l]
 PTOT:
   label: PTOT [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_PTOT:
+  label: QV:SMHI:PTOT [µmol/l]
 NTRI:
   label: NTRI [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_NTRI:
+  label: QV:SMHI:NTRI [µmol/l]
 NTRA:
   label: NTRA [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_NTRA:
+  label: QV:SMHI:NTRA [µmol/l]
 NTRZ:
   label: NTRZ [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_NTRZ:
+  label: QV:SMHI:NTRZ [µmol/l]
 AMON:
   label: AMON [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_AMON:
+  label: QV:SMHI:AMON [µmol/l]
 NTOT:
   label: NTOT [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_NTOT:
+  label: QV:SMHI:NTOT [µmol/l]
 SIO3-SI:
   label: SIO3-SI [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_SIO3-SI:
+  label: QV:SMHI:SIO3-SI [µmol/l]
 HUMUS:
   label: HUMUS [mg/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_HUMUS:
+  label: QV:SMHI:HUMUS [mg/l]
 CPHL:
   label: CPHL [µg/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_CPHL:
+  label: QV:SMHI:CPHL [µg/l]
 DOC:
   label: DOC [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_DOC:
+  label: QV:SMHI:DOC [µmol/l]
 POC:
   label: POC [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_POC:
+  label: QV:SMHI:POC [µmol/l]
 TOC:
   label: TOC [mg/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_TOC:
+  label: QV:SMHI:TOC [mg/l]
 PON:
   label: PON [µmol/l]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_PON:
+  label: QV:SMHI:PON [µmol/l]
 CURDIR:
   label: CURDIR [decadeg]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 0
   is_primary_variable: F
   comment: ""
+Q_CURDIR:
+  label: QV:SMHI:CURDIR [decadeg]
 CURVEL:
   label: CURVEL [m/s]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
+Q_CURVEL:
+  label: QV:SMHI:CURVEL [m/s]
 CDOM:
   label: CDOM [1/m]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_CDOM:
+  label: QV:SMHI:CDOM [1/m]
 TURB:
   label: TURB [FNU]
   value_type: FLOAT
-  qf_schema: ODV
+  qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
+Q_TURB:
+  label: QV:SMHI:TURB [FNU]
