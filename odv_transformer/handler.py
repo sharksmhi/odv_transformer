@@ -16,12 +16,13 @@ def get_key(x):
 
     According to standard NODC-PhyChe serie format (YEAR_SHIPC_SERNO).
     """
-    return '_'.join(x[['MYEAR', 'SHIPC', 'SERNO']])
+    return '_'.join(x)
 
 
 def get_timestamp(x):
     """Return timestring (UTC)."""
-    return pd.Timestamp('T'.join(x[['SDATE', 'STIME']]), tz='UTC').isoformat()
+    return 'T'.join(x) + 'Z'
+    # return pd.Timestamp('T'.join(x), tz='UTC').strftime('%Y-%m-%dT%H:%MZ')
 
 
 def get_cruise(x):
@@ -29,7 +30,7 @@ def get_cruise(x):
 
     Format: {YEAR}{SHIPC}{CRUISE_NO}
     """
-    return ''.join(x[['MYEAR', 'SHIPC', 'CRUISE_NO']])
+    return ''.join(x)
 
 
 class Frame(pd.DataFrame, ABC):
@@ -55,9 +56,15 @@ class Frame(pd.DataFrame, ABC):
 
     def convert_formats(self):
         """Convert formats of self."""
-        self['KEY'] = self.apply(get_key, axis=1)
-        self['CRUISE_NO'] = self.apply(get_cruise, axis=1)
-        self['TIMESTAMP'] = self.apply(get_timestamp, axis=1)
+        self['KEY'] = self[['MYEAR', 'SHIPC', 'SERNO']].apply(
+            get_key, axis=1
+        )
+        self['CRUISE_NO'] = self[['MYEAR', 'SHIPC', 'CRUISE_NO']].apply(
+            get_cruise, axis=1
+        )
+        self['TIMESTAMP'] = self[['SDATE', 'STIME']].apply(
+            get_timestamp, axis=1
+        )
         self['LATIT'] = self['LATIT'].apply(decmin_to_decdeg)
         self['LONGI'] = self['LONGI'].apply(decmin_to_decdeg)
 
@@ -138,38 +145,6 @@ class DataFrames(dict):
             self[name].convert_formats()
             self[name].delete_empty_columns()
             self[name].add_meta_columns()
-            self.divide_on_smtyp(name)
-            self[name].delete_rows_with_no_data()
-            # self[name].translation()
-
-    def divide_on_smtyp(self, name):
-        """Divide dataframe based on sampling type (SMTYP)."""
-        df_cdf = None
-        ctd_cols = [c for c in self[name].columns if '_CTD' in c]
-        if ctd_cols:
-            frame_cols = self[name].meta_columns + ctd_cols
-            df_cdf = self[name].loc[:, frame_cols].copy()
-            df_cdf.rename(
-                columns={c: c.replace('_CTD', '') for c in ctd_cols},
-                inplace=True
-            )
-            self[name].drop(columns=ctd_cols, inplace=True)
-            df_cdf['SMTYP'] = 'C'
-            df_cdf['SMCAT'] = '130'
-
-        self[name].rename(
-            columns={c: c.replace('_BTL', '') for c in self[name].columns},
-            inplace=True
-        )
-        self[name]['SMTYP'] = 'B'
-        self[name]['SMCAT'] = '30'
-        if ctd_cols:
-            for c in ctd_cols:
-                valid_col = c.replace('_CTD', '')
-                if valid_col not in self[name]:
-                    self[name][valid_col] = ''
-
-            self[name] = self[name].append(df_cdf, ignore_index=True)
 
 
 class MultiDeliveries(dict):
