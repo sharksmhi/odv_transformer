@@ -1,0 +1,44 @@
+description: Reader for zip files according to SHARKzip format
+name: chl_tube
+data_type: chlorophyll
+reader: !!python/name:odv_transformer.readers.tube.TubeChlReader ''
+files_startswith: 'SHARK_'
+elements:
+  # element_specifier: can be a file_name, excel sheet_name or perhaps something else?
+  # key_values below are considered standard archive structure
+  data:
+    element_specifier: 'shark_data.txt'
+    header: 0
+    sep: "\t"
+    encoding: "cp1252"
+    dtype: !!python/str
+    keep_default_na: false
+  delivery_note:
+    element_specifier: "processed_data/delivery_note.txt"
+    encoding: "cp1252"
+    dtype: !!python/str
+    keep_default_na: false
+mapper:
+  visit_year: MYEAR
+  station_name: STATN
+  sample_location_id: REG_ID
+  station_id: REG_ID_GROUP
+  sample_project_name_en: PROJ
+  sample_orderer_name_en: ORDERER
+  platform_code: SHIPC
+  visit_id: SERNO
+  expedition_id: CRUISE_NO
+  sample_date: SDATE
+  sample_time: STIME
+  sample_latitude_dd: LATIT_DD
+  sample_longitude_dd: LONGI_DD
+  water_depth_m: WADEP
+  visit_comment: COMNT_VISIT
+  sample_min_depth_m: MNDEP
+  sample_max_depth_m: MXDEP
+  sampled_volume_l: SAMP_VOL
+  sample_comment: COMNT_SAMP
+  parameter: PARAM
+  value: CPHL
+  unit: MUNIT
+  quality_flag: Q_CPHL

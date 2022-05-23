@@ -1,0 +1,12 @@
+description: Reader for high resolution profile data format
+name: profile
+data_type: profile
+reader: !!python/name:odv_transformer.readers.profile.ProfileReader ''
+files_startswith: 'ctd_profile_'
+elements:
+  data:
+    element_specifier: null
+mapper:
+  STATION: STATN
+  LATITUDE_DD: LATIT_DD
+  LONGITUDE_DD: LONGI_DD

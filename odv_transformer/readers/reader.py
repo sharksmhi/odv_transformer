@@ -16,6 +16,14 @@ class ReaderBase(ABC):
         """Initialize."""
         super().__init__()
 
+    def get(self, item):
+        """Return value for "item"."""
+        if item in self.__dict__.keys():
+            return self.__getattribute__(item)
+        else:
+            print('Warning! Can´t find attribute: %s' % item)
+            return 'None'
+
     def load(self, *args, **kwargs):
         """Load."""
         raise NotImplementedError

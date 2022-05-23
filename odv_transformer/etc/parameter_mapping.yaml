@@ -28,13 +28,13 @@ TIMESTAMP:
   value_type: INDEXED_TEXT
   comment:
   significant_digits: 3
-LONGI:
+LONGI_DD:
   label: Longitude [degrees_east]
   var_type: METALONGITUDE
   value_type: FLOAT
   comment:
   significant_digits: 0
-LATIT:
+LATIT_DD:
   label: Latitude [degrees_north]
   var_type: METALATITUDE
   value_type: FLOAT
@@ -75,9 +75,12 @@ ORDERER:
 PROJ:
   label: Project Code [EDMERP]
 SECCHI:
+  LOCAL: SECCHI
   label: SECCHI [m]
   var_type: METASECCHI
   value_type: FLOAT
+  P01: SECCSDNX
+  P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
   is_primary_variable: F
@@ -85,139 +88,183 @@ SECCHI:
 Q_SECCHI:
   label: QV:SMHI:SECCHI [m]
 DEPH:
+  LOCAL: DEPH
   label: DEPH [m]
   value_type: FLOAT
+  P01: ADEPZZ01
+  P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
   is_primary_variable: F
   comment: ""
-PRES:
-  label: PRES [dbar]
+Q_DEPH:
+  label: QV:SMHI:DEPH [m]
+MNDEP:
+  LOCAL: MNDEP
+  label: MNDEP [m]
   value_type: FLOAT
+  P01: ADEPZZ01
+  P06: ULAA
   qf_schema: SMHI
-  significant_digits: 3
+  significant_digits: 2
   is_primary_variable: F
   comment: ""
-Q_PRES:
-  label: QV:SMHI:PRES [dbar]
-PRES_CTD:
-  label: PRES [dbar]
+MXDEP:
+  LOCAL: MXDEP
+  label: MXDEP [m]
   value_type: FLOAT
+  P01: ADEPZZ01
+  P06: ULAA
+  qf_schema: SMHI
+  significant_digits: 2
+  is_primary_variable: F
+  comment: ""
+PRES_CTD:
+  LOCAL: PRES_CTD
+  label: PRES_CTD [dbar]
+  value_type: FLOAT
+  P01: PRESPR01
+  P06: UPDB
   qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
 Q_PRES_CTD:
-  label: QV:SMHI:PRES [dbar]
-TEMP:
-  label: TEMP [degC]
-  value_type: FLOAT
-  qf_schema: SMHI
-  significant_digits: 3
-  is_primary_variable: F
-  comment: ""
-Q_TEMP:
-  label: QV:SMHI:TEMP [degC]
+  label: QV:SMHI:PRES_CTD [dbar]
 TEMP_BTL:
-  label: TEMP [degC]
+  LOCAL: TEMP_BTL
+  label: TEMP_BTL [degC]
   value_type: FLOAT
+  P01: TEMPPR01
+  P06: UPAA
   qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
 Q_TEMP_BTL:
-  label: QV:SMHI:TEMP [degC]
+  label: QV:SMHI:TEMP_BTL [degC]
 TEMP_CTD:
-  label: TEMP [degC]
+  LOCAL: TEMP_CTD
+  label: TEMP_CTD [degC]
   value_type: FLOAT
+  P01: TEMPST01
+  P06: UPAA
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_TEMP_CTD:
-  label: QV:SMHI:TEMP [degC]
-SALT:
-  label: SALT [psu]
-  value_type: FLOAT
-  qf_schema: SMHI
-  significant_digits: 4
-  is_primary_variable: F
-  comment: ""
-Q_SALT:
-  label: QV:SMHI:SALT [psu]
+  label: QV:SMHI:TEMP_CTD [degC]
 SALT_BTL:
-  label: SALT [psu]
+  LOCAL: SALT_BTL
+  label: SALT_BTL [psu]
   value_type: FLOAT
+  P01: PSLTZZ01
+  P06: UUUU
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_SALT_BTL:
-  label: QV:SMHI:SALT [psu]
+  label: QV:SMHI:SALT_BTL [psu]
 SALT_CTD:
-  label: SALT [psu]
+  LOCAL: SALT_CTD
+  label: SALT_CTD [psu]
   value_type: FLOAT
+  P01: PSALST01
+  P06: UUUU
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_SALT_CTD:
-  label: QV:SMHI:SALT [psu]
+  label: QV:SMHI:SALT_CTD [psu]
 CNDC_25:
+  LOCAL: CNDC_25
   label: CNDC [mS/m]
   value_type: FLOAT
+  P01: CNDCZZ01
+  P06: MSPM
   qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
   comment: ""
 Q_CNDC_25:
-  label: QV:SMHI:CNDC [mS/m]
-CNDC:
-  label: CNDC [mS/m]
-  value_type: FLOAT
-  qf_schema: SMHI
-  significant_digits: 3
-  is_primary_variable: F
-  comment: ""
-Q_CNDC:
-  label: QV:SMHI:CNDC [mS/m]
+  label: QV:SMHI:CNDC_25 [mS/m]
 CNDC_CTD:
-  label: CNDC [mS/m]
+  LOCAL: CNDC_CTD
+  label: CNDC_CTD [mS/m]
   value_type: FLOAT
+  P01: CNDCZZ01
+  P06: MSPM
   qf_schema: SMHI
-  significant_digits: 3
+  significant_digits: 5
   is_primary_variable: F
   comment: ""
 Q_CNDC_CTD:
-  label: QV:SMHI:CNDC [mS/m]
-DOXY:
-  label: DOXY [ml/l]
+  label: QV:SMHI:CNDC_CTD [mS/m]
+DENS_CTD:
+  LOCAL: DENS_CTD
+  label: DENS_CTD [kg/m3]
   value_type: FLOAT
+  P01: DENSWB01
+  P06: UKMC
   qf_schema: SMHI
-  significant_digits: 4
+  significant_digits: 8
   is_primary_variable: F
   comment: ""
-Q_DOXY:
-  label: QV:SMHI:DOXY [ml/l]
+Q_DENS_CTD:
+  label: QV:SMHI:DENS_CTD [kg/m3]
 DOXY_BTL:
-  label: DOXY [ml/l]
+  LOCAL: DOXY_BTL
+  label: DOXY_BTL [ml/l]
   value_type: FLOAT
+  P01: DOXYWITX
+  P06: UMLL
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_DOXY_BTL:
-  label: QV:SMHI:DOXY [ml/l]
+  label: QV:SMHI:DOXY_BTL [ml/l]
 DOXY_CTD:
-  label: DOXY [ml/l]
+  LOCAL: DOXY_CTD
+  label: DOXY_CTD [ml/l]
   value_type: FLOAT
+  P01: DOXYZZ01
+  P06: UMLL
   qf_schema: SMHI
-  significant_digits: 4
+  significant_digits: 5
   is_primary_variable: F
   comment: ""
 Q_DOXY_CTD:
-  label: QV:SMHI:DOXY [ml/l]
+  label: QV:SMHI:DOXY_CTD [ml/l]
+DOXY_SAT_CTD:
+  LOCAL: DOXY_SAT_CTD
+  label: DOXY_SAT_CTD [%]
+  value_type: FLOAT
+  P01: OXYSZZ01
+  P06: UPCT
+  qf_schema: SMHI
+  significant_digits: 5
+  is_primary_variable: F
+  comment: ""
+Q_DOXY_SAT_CTD:
+  label: QV:SMHI:DOXY_SAT_CTD [%]
+DOXY_SIGNAL:
+  LOCAL: DOXY_SIGNAL
+  label: DOXY_SIGNAL [V]
+  value_type: FLOAT
+  P01: OXYOOPCT
+  P06: UVLT
+  qf_schema: SMHI
+  significant_digits: 5
+  is_primary_variable: F
+  comment: ""
+Q_DOXY_SIGNAL:
+  label: QV:SMHI:DOXY_SIGNAL [V]
 FLUO:
+  LOCAL: FLUO
   label: FLUO [unitless]
   value_type: FLOAT
   qf_schema: SMHI
@@ -227,17 +274,21 @@ FLUO:
 Q_FLUO:
   label: QV:SMHI:FLUO [unitless]
 FLUO_CTD:
-  label: FLUO [unitless]
+  LOCAL: FLUO_CTD
+  label: FLUO_CTD [unitless]
   value_type: FLOAT
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_FLUO_CTD:
-  label: QV:SMHI:FLUO [unitless]
+  label: QV:SMHI:FLUO_CTD [unitless]
 H2S:
+  LOCAL: H2S
   label: H2S [µmol/l]
   value_type: FLOAT
+  P01: H2SXZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -245,8 +296,11 @@ H2S:
 Q_H2S:
   label: QV:SMHI:H2S [µmol/l]
 PH:
+  LOCAL: PH
   label: PH [unitless]
   value_type: FLOAT
+  P01: PHXXZZXX
+  P06: UUPH
   qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
@@ -254,8 +308,11 @@ PH:
 Q_PH:
   label: QV:SMHI:PH [unitless]
 PH_LAB:
+  LOCAL: PH_LAB
   label: PH_LAB [unitless]
   value_type: FLOAT
+  P01: PHXXZZXX
+  P06: UUPH
   qf_schema: SMHI
   significant_digits: 3
   is_primary_variable: F
@@ -263,8 +320,11 @@ PH_LAB:
 Q_PH_LAB:
   label: QV:SMHI:PH_LAB [unitless]
 PH_LAB_TEMP:
+  LOCAL: PH_LAB_TEMP
   label: PH_LAB_TEMP [degC]
   value_type: FLOAT
+  P01: PHTXPR01
+  P06: UPAA
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -272,8 +332,11 @@ PH_LAB_TEMP:
 Q_PH_LAB_TEMP:
   label: QV:SMHI:PH_LAB_TEMP [degC]
 ALKY:
+  LOCAL: ALKY
   label: ALKY [mmol/kg]
   value_type: FLOAT
+  P01: MDMAP014
+  P06: MMKG
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -281,8 +344,11 @@ ALKY:
 Q_ALKY:
   label: QV:SMHI:ALKY [mmol/kg]
 PHOS:
+  LOCAL: PHOS
   label: PHOS [µmol/l]
   value_type: FLOAT
+  P01: PHOSZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -290,8 +356,11 @@ PHOS:
 Q_PHOS:
   label: QV:SMHI:PHOS [µmol/l]
 PTOT:
+  LOCAL: PTOT
   label: PTOT [µmol/l]
   value_type: FLOAT
+  P01: TPHSZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -299,8 +368,11 @@ PTOT:
 Q_PTOT:
   label: QV:SMHI:PTOT [µmol/l]
 NTRI:
+  LOCAL: NTRI
   label: NTRI [µmol/l]
   value_type: FLOAT
+  P01: NTRIZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -308,8 +380,11 @@ NTRI:
 Q_NTRI:
   label: QV:SMHI:NTRI [µmol/l]
 NTRA:
+  LOCAL: NTRA
   label: NTRA [µmol/l]
   value_type: FLOAT
+  P01: NTRAZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -317,8 +392,11 @@ NTRA:
 Q_NTRA:
   label: QV:SMHI:NTRA [µmol/l]
 NTRZ:
+  LOCAL: NTRZ
   label: NTRZ [µmol/l]
   value_type: FLOAT
+  P01: NTRZZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -326,8 +404,11 @@ NTRZ:
 Q_NTRZ:
   label: QV:SMHI:NTRZ [µmol/l]
 AMON:
+  LOCAL: AMON
   label: AMON [µmol/l]
   value_type: FLOAT
+  P01: AMONZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -335,8 +416,11 @@ AMON:
 Q_AMON:
   label: QV:SMHI:AMON [µmol/l]
 NTOT:
+  LOCAL: NTOT
   label: NTOT [µmol/l]
   value_type: FLOAT
+  P01: NTOTZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -344,8 +428,11 @@ NTOT:
 Q_NTOT:
   label: QV:SMHI:NTOT [µmol/l]
 SIO3-SI:
+  LOCAL: SIO3-SI
   label: SIO3-SI [µmol/l]
   value_type: FLOAT
+  P01: SLCAZZXX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -353,6 +440,7 @@ SIO3-SI:
 Q_SIO3-SI:
   label: QV:SMHI:SIO3-SI [µmol/l]
 HUMUS:
+  LOCAL: HUMUS
   label: HUMUS [mg/l]
   value_type: FLOAT
   qf_schema: SMHI
@@ -362,8 +450,11 @@ HUMUS:
 Q_HUMUS:
   label: QV:SMHI:HUMUS [mg/l]
 CPHL:
+  LOCAL: CPHL
   label: CPHL [µg/l]
   value_type: FLOAT
+  P01: CPHLZZXX
+  P06: UMMC
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -371,8 +462,11 @@ CPHL:
 Q_CPHL:
   label: QV:SMHI:CPHL [µg/l]
 DOC:
+  LOCAL: DOC
   label: DOC [µmol/l]
   value_type: FLOAT
+  P01: CORGZZZX
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -380,8 +474,11 @@ DOC:
 Q_DOC:
   label: QV:SMHI:DOC [µmol/l]
 POC:
+  LOCAL: POC
   label: POC [µmol/l]
   value_type: FLOAT
+  P01: MDMAP010
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -389,8 +486,11 @@ POC:
 Q_POC:
   label: QV:SMHI:POC [µmol/l]
 TOC:
+  LOCAL: TOC
   label: TOC [mg/l]
   value_type: FLOAT
+  P01: CORGZZTL
+  P06: UMGL
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -398,8 +498,11 @@ TOC:
 Q_TOC:
   label: QV:SMHI:TOC [mg/l]
 PON:
+  LOCAL: PON
   label: PON [µmol/l]
   value_type: FLOAT
+  P01: NTOTZZZZ
+  P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
@@ -407,6 +510,7 @@ PON:
 Q_PON:
   label: QV:SMHI:PON [µmol/l]
 CURDIR:
+  LOCAL: CURDIR
   label: CURDIR [decadeg]
   value_type: FLOAT
   qf_schema: SMHI
@@ -416,6 +520,7 @@ CURDIR:
 Q_CURDIR:
   label: QV:SMHI:CURDIR [decadeg]
 CURVEL:
+  LOCAL: CURVEL
   label: CURVEL [m/s]
   value_type: FLOAT
   qf_schema: SMHI
@@ -425,6 +530,7 @@ CURVEL:
 Q_CURVEL:
   label: QV:SMHI:CURVEL [m/s]
 CDOM:
+  LOCAL: CDOM
   label: CDOM [1/m]
   value_type: FLOAT
   qf_schema: SMHI
@@ -434,11 +540,26 @@ CDOM:
 Q_CDOM:
   label: QV:SMHI:CDOM [1/m]
 TURB:
+  LOCAL: TURB
   label: TURB [FNU]
   value_type: FLOAT
+  P01: TURBXXXX
+  P06: USTU
   qf_schema: SMHI
   significant_digits: 4
   is_primary_variable: F
   comment: ""
 Q_TURB:
   label: QV:SMHI:TURB [FNU]
+SVEL_CTD:
+  LOCAL: SVEL_CTD
+  label: SVEL_CTD [m/s]
+  value_type: FLOAT
+  P01: SVELCT01
+  P06: UVAA
+  qf_schema: SMHI
+  significant_digits: 6
+  is_primary_variable: F
+  comment: ""
+Q_SVEL_CTD:
+  label: QV:SMHI:SVEL_CTD [m/s]
