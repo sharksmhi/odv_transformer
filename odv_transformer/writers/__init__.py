@@ -9,3 +9,4 @@ Created on 2022-02-02 18:20
 from odv_transformer.writers.writer import WriterBase  # noqa: F401
 from odv_transformer.writers.ices import (IcesOdvWriter,  # noqa: F401
                                           IcesProfileOdvWriter)  # noqa: F401
+from odv_transformer.writers.ices import SdnOdvWriter  # noqa: F401

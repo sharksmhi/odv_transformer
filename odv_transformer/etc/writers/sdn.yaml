@@ -1,0 +1,79 @@
+description: Writer for txt files according to SeaDataNet ODV format
+name: sdn
+data_type: txt
+default_file_name: shark_odv_file_name.txt
+writer: !!python/name:odv_transformer.writers.sdn.SdnOdvWriter ''
+meta_block_prefix: //
+meta_spec:
+  prefix: <MetaVariable>
+  suffix: </MetaVariable>
+  seperator: " "
+  field_list:
+    - label
+    - var_type
+    - value_type
+    - comment
+    - significant_digits
+  columns:
+    - CRUISE_NO
+    - STATN
+    - SMTYP
+    - TIMESTAMP
+    - LONGI_DD
+    - LATIT_DD
+    - LOCAL_CDI_ID
+    - EDMO
+    - WADEP
+
+data_spec:
+  prefix: <DataVariable>
+  suffix: </DataVariable>
+  seperator: " "
+  field_list:
+    - label
+    - value_type
+    - qf_schema
+    - significant_digits
+    - is_primary_variable
+    - comment
+
+parameters:
+  - SECCHI
+  - DEPH
+  - MNDEP
+  - MXDEP
+  - PRES_CTD
+  - TEMP_BTL
+  - TEMP_CTD
+  - SALT_BTL
+  - SALT_CTD
+  - CNDC_25
+  - CNDC_CTD
+  - DOXY_BTL
+  - DOXY_CTD
+#  - FLUO
+#  - FLUO_CTD
+  - H2S
+  - PH
+#  - PH_LAB
+  - PH_LAB_TEMP
+  - ALKY
+  - PHOS
+  - PTOT
+  - NTRI
+  - NTRA
+  - NTRZ
+  - AMON
+  - NTOT
+  - SIO3-SI
+#  - HUMUS
+  - CPHL
+  - DOC
+  - POC
+  - TOC
+  - PON
+#  - CURDIR
+#  - CURVEL
+#  - CDOM
+  - TURB
+  - SAMP_VOL
