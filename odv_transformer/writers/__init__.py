@@ -7,5 +7,5 @@ Created on 2022-02-02 18:20
 @author: johannes
 """
 from odv_transformer.writers.writer import WriterBase  # noqa: F401
-from odv_transformer.writers.ices import (IcesOdvWriter,
+from odv_transformer.writers.ices import (IcesOdvWriter,  # noqa: F401
                                           IcesProfileOdvWriter)  # noqa: F401

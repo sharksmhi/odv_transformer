@@ -46,7 +46,7 @@ class ProfileReader(ReaderBase):
         # return datasets
 
     def _set_format(self, dset):
-        """"""
+        """Add metadata to dataframe."""
         mdict = {
             v[1]: v[2] for v in dset['metadata'][dset[
                 'metadata'].str.startswith('//METADATA;')].str.split(';')
