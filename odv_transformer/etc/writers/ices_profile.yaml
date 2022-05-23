@@ -1,8 +1,8 @@
-description: Writer for txt files according to ICES ODV format
+description: Writer for profile txt files according to ICES ODV format
 name: ices
 data_type: txt
-default_file_name: shark_odv_file_name.txt
-writer: !!python/name:odv_transformer.writers.ices.IcesOdvWriter ''
+default_file_name: shark_profile_odv_file_name.txt
+writer: !!python/name:odv_transformer.writers.ices.IcesProfileOdvWriter ''
 meta_block_prefix: //
 meta_spec:
   prefix: <MetaVariable>
@@ -27,9 +27,6 @@ meta_spec:
     - SMCAT
     - DISTRIBUTOR
     - CUSTODIAN
-#    - ORDERER
-#    - PROJ
-    - SECCHI
 
 data_spec:
   prefix: <DataVariable>
@@ -44,42 +41,28 @@ data_spec:
     - comment
 
 parameters:
-  - SECCHI
-  - DEPH
-  - MNDEP
-  - MXDEP
+#  - DEPH
   - PRES_CTD
-  - TEMP_BTL
   - TEMP_CTD
-  - SALT_BTL
   - SALT_CTD
-  - CNDC_25
-  - CNDC_CTD
-  - DOXY_BTL
+#  - CNDC_CTD
+#  - DENS_CTD
   - DOXY_CTD
-#  - FLUO
 #  - FLUO_CTD
-  - H2S
-  - PH
-#  - PH_LAB
-  - PH_LAB_TEMP
-  - ALKY
-  - PHOS
-  - PTOT
-  - NTRI
-  - NTRA
-  - NTRZ
-  - AMON
-  - NTOT
-  - SIO3-SI
-#  - HUMUS
-  - CPHL
-  - DOC
-  - POC
-  - TOC
-  - PON
-#  - CURDIR
-#  - CURVEL
-#  - CDOM
-  - TURB
-  - SAMP_VOL
+#  - DOXY_SAT_CTD
+#  - DOXY_SIGNAL
+#  - SVEL_CTD
+
+special_mapping:
+  CNDC_CTD [S/m]:
+    LOCAL: CNDC_CTD
+    label: CNDC_CTD [S/m]
+    value_type: FLOAT
+    P01: CNDCZZ01
+    P06: UECA
+    qf_schema: SMHI
+    significant_digits: 4
+    is_primary_variable: F
+    comment: ""
+  Q_CNDC_CTD:
+    label: QV:SMHI:CNDC_CTD [S/m]

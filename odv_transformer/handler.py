@@ -8,7 +8,6 @@ Created on 2022-02-03 09:34
 """
 from abc import ABC
 import pandas as pd
-from odv_transformer.utils import decmin_to_decdeg
 
 
 def get_key(x):
@@ -65,18 +64,15 @@ class Frame(pd.DataFrame, ABC):
         self['TIMESTAMP'] = self[['SDATE', 'STIME']].apply(
             get_timestamp, axis=1
         )
-        self['LATIT'] = self['LATIT'].apply(decmin_to_decdeg)
-        self['LONGI'] = self['LONGI'].apply(decmin_to_decdeg)
 
     def delete_empty_columns(self):
         """Delete columns without any data."""
         cols_to_drop = set()
         for key, boolean in self.eq('').all().items():
             if boolean:
-                if key.startswith('Q_'):
+                if key.startswith('Q') and key[2:] not in cols_to_drop:
                     # we keep Q-fields if there is data in the data column
-                    if key[2:] not in cols_to_drop:
-                        continue
+                    continue
                 cols_to_drop.add(key)
         self.drop(columns=cols_to_drop, inplace=True)
 
@@ -94,7 +90,11 @@ class Frame(pd.DataFrame, ABC):
     @property
     def data_columns(self):
         """Return data columns (not metadata- or quality flag-columns)."""
-        return ['DEPH'] + [c[2:] for c in self.quality_flag_columns]
+        if 'DEPH' in self.columns:
+            return ['DEPH'] + [c[2:] for c in self.quality_flag_columns]
+        else:
+            return ['MNDEP', 'MXDEP'] + \
+                   [c[2:] for c in self.quality_flag_columns]
 
     @property
     def data_columns_incl_flags(self):
@@ -139,9 +139,16 @@ class DataFrames(dict):
             data (pd.DataFrame): Data
             **kwargs:
         """
-        if name:
+        if name == 'profile_data':
+            for key in list(data):
+                data[key]['data'] = Frame(data[key]['data'])
+                data[key]['data'].convert_formats()
+                data[key]['data'].add_meta_columns()
+            self.setdefault(name, data)
+        elif name:
             self.setdefault(name, Frame(data))
-        if name == 'data':
+
+        if name in 'data':
             self[name].convert_formats()
             self[name].delete_empty_columns()
             self[name].add_meta_columns()

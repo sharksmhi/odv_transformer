@@ -20,14 +20,6 @@ class PandasTxtReader(ReaderBase, ABC):
         for key, item in kwargs.items():
             setattr(self, key, item)
 
-    def get(self, item):
-        """Return value for "item"."""
-        if item in self.__dict__.keys():
-            return self.__getattribute__(item)
-        else:
-            print('Warning! Can´t find attribute: %s' % item)
-            return 'None'
-
     @staticmethod
     def read(*args, **kwargs):
         """Return data from pd.read_csv()."""

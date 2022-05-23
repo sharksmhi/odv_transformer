@@ -6,8 +6,10 @@ Created on 2022-02-02 18:22
 
 @author: johannes
 """
+import pandas as pd
 from pathlib import Path
 from odv_transformer.readers.txt import PandasTxtReader
+from odv_transformer.utils import decmin_to_decdeg
 
 
 class PhysicalChemicalArchiveReader(PandasTxtReader):
@@ -16,6 +18,8 @@ class PhysicalChemicalArchiveReader(PandasTxtReader):
     def __init__(self, *args, **kwargs):
         """Initialize."""
         super().__init__(*args, **kwargs)
+        for key, item in kwargs.items():
+            setattr(self, key, item)
         self.arguments = list(args)
         self.files = {}
 
@@ -28,7 +32,13 @@ class PhysicalChemicalArchiveReader(PandasTxtReader):
 
         Reading excel sheet into pandas.Dataframe.
         """
-        return self._read_file(*args, **kwargs)
+        df = self._read_file(*args, **kwargs)
+        if type(df) == pd.DataFrame:
+            if 'LATIT' in df:
+                df['LATIT_DD'] = df['LATIT'].apply(decmin_to_decdeg)
+            if 'LONGI' in df:
+                df['LONGI_DD'] = df['LONGI'].apply(decmin_to_decdeg)
+        return df
 
     def _read_file(self, *args, **kwargs):
         """Read file (element) and return dataframe."""
