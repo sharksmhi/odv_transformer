@@ -155,6 +155,18 @@ TEMP_CTD:
   comment: ""
 Q_TEMP_CTD:
   label: QV:SMHI:TEMP_CTD [degC]
+TEMP2_CTD:
+  LOCAL: TEMP2_CTD
+  label: TEMP2_CTD [degC]
+  value_type: FLOAT
+  P01: TEMPST02
+  P06: UPAA
+  qf_schema: SMHI
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+Q_TEMP2_CTD:
+  label: QV:SMHI:TEMP2_CTD [degC]
 SALT_BTL:
   LOCAL: SALT_BTL
   label: SALT_BTL [psu]
@@ -179,6 +191,18 @@ SALT_CTD:
   comment: ""
 Q_SALT_CTD:
   label: QV:SMHI:SALT_CTD [psu]
+SALT2_CTD:
+  LOCAL: SALT2_CTD
+  label: SALT2_CTD [psu]
+  value_type: FLOAT
+  P01: PSALST02
+  P06: UUUU
+  qf_schema: SMHI
+  significant_digits: 4
+  is_primary_variable: F
+  comment: ""
+Q_SALT2_CTD:
+  label: QV:SMHI:SALT2_CTD [psu]
 CNDC_25:
   LOCAL: CNDC_25
   label: CNDC [mS/m]
@@ -203,6 +227,18 @@ CNDC_CTD:
   comment: ""
 Q_CNDC_CTD:
   label: QV:SMHI:CNDC_CTD [mS/m]
+CNDC2_CTD:
+  LOCAL: CNDC2_CTD
+  label: CNDC2_CTD [mS/m]
+  value_type: FLOAT
+  P01: CNDCZZ02
+  P06: MSPM
+  qf_schema: SMHI
+  significant_digits: 5
+  is_primary_variable: F
+  comment: ""
+Q_CNDC2_CTD:
+  label: QV:SMHI:CNDC2_CTD [mS/m]
 DENS_CTD:
   LOCAL: DENS_CTD
   label: DENS_CTD [kg/m3]
