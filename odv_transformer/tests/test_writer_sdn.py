@@ -20,5 +20,4 @@ if __name__ == "__main__":
     s.write(
         writer='sdn',
         delivery_name=arch_name,
-        file_name=arch_name.lower(),
     )

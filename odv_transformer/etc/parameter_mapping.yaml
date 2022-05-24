@@ -40,6 +40,12 @@ LATIT_DD:
   value_type: FLOAT
   comment:
   significant_digits: 0
+LOCAL_CDI_ID:
+  label: LOCAL_CDI_ID
+  var_type: METALOCALCDIID
+  value_type: TEXT
+  comment: used by SeaDataNet
+  significant_digits: 0
 WADEP:
   label: Bot. Depth [m]
   var_type: METABOTDEPTH
