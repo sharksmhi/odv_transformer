@@ -6,7 +6,6 @@ Created on 2022-02-02 18:22
 
 @author: johannes
 """
-from odv_transformer.handler import get_key
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
@@ -31,9 +30,6 @@ class SdnOdvWriter(WriterBase):
         super().__init__(*args, **kwargs)
         if self.data_spec:
             self.parameters = set(self.data_spec['columns'])
-            # self.selected_columns = set(self.meta_spec['columns'])
-            # self.selected_columns = self.selected_columns.union(
-            #     self.data_spec['columns'])
 
     def _update_meta(self, df):
         """Change attributes of meta dictionary."""
