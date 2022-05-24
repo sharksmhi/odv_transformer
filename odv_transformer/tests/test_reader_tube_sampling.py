@@ -12,7 +12,7 @@ from odv_transformer import Session
 if __name__ == "__main__":
     s = Session()
 
-    arch_name = 'SHARK_Chlorophyll_2020_SMHI_version_2022-01-11.zip'
+    arch_name = 'SHARK_Chlorophyll_2021_SMHI_version_2022-05-02.zip'
     s.read(
         s.settings.base_directory.joinpath('tests', 'test_data', arch_name),
         reader='chl_tube',

@@ -10,9 +10,10 @@ from odv_transformer.handler import get_key
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
-def adjust_cruise_no(cruise, shipc):
+def adjust_cruise_no(cruise, old, shipc):
     """If shipc should be mapped we map cruise_no as well."""
-    return ''.join((cruise[:4], shipc, cruise[8:]))
+    return cruise.replace(old, shipc)
+    # return ''.join((cruise[:4], shipc, cruise[8:]))
 
 
 class IcesOdvWriter(WriterBase):
@@ -25,7 +26,8 @@ class IcesOdvWriter(WriterBase):
         self.data_spec = None
         self.parameters = None
         self.pmap = None
-        self.smap = {'7798': '7799'}
+        self.smap = {'7798': '7799',
+                     '77Svävare': '77NA'}
         self.selected_columns = set()
         self.special_mapping = None
         super().__init__(*args, **kwargs)
@@ -173,7 +175,7 @@ class IcesOdvWriter(WriterBase):
                 )
                 df.loc[boolean, 'CRUISE_NO'] = df.loc[boolean,
                                                       'CRUISE_NO'].apply(
-                    lambda x: adjust_cruise_no(x, ices_code)
+                    lambda x: adjust_cruise_no(x, shipc, ices_code)
                 )
 
     def _empty_redundant_meta_columns(self, df):
@@ -240,7 +242,8 @@ class IcesOdvWriter(WriterBase):
             df['SMTYP'] = 'B'
             df['SMCAT'] = '30'
         elif 'MNDEP' in df:
-            df['SMTYP'] = 'T'  # Can´t find a code for tube/hose sampling
+            # TODO tube samples should have different codes.
+            df['SMTYP'] = 'B'  # Can´t find a code for tube/hose sampling
             df['SMCAT'] = '30'  # Can´t find a code for tube/hose sampling
 
         if ctd_cols:

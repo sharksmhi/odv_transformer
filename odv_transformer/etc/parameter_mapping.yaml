@@ -114,7 +114,7 @@ MNDEP:
   qf_schema: SMHI
   significant_digits: 2
   is_primary_variable: F
-  comment: ""
+  comment: "Start depth of tube sample"
 MXDEP:
   LOCAL: MXDEP
   label: MXDEP [m]
@@ -124,7 +124,7 @@ MXDEP:
   qf_schema: SMHI
   significant_digits: 2
   is_primary_variable: F
-  comment: ""
+  comment: "End depth of tube sample"
 PRES_CTD:
   LOCAL: PRES_CTD
   label: PRES_CTD [dbar]
