@@ -9,9 +9,12 @@ Created on 2022-02-02 18:22
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
-def adjust_cruise_no(cruise, shipc):
+def adjust_cruise_no(cruise):
     """If shipc should be mapped we map cruise_no as well."""
-    return ''.join((cruise[:4], shipc, cruise[8:]))
+    if len(cruise) > 7:
+        return '_'.join((cruise[:4], cruise[4:8], cruise[8:]))
+    else:
+        return cruise
 
 
 class SdnOdvWriter(WriterBase):
@@ -63,11 +66,13 @@ class SdnOdvWriter(WriterBase):
         self._set_parameter_mapping(pmap)
         self._set_smtyp(data['data'])
         self._map_quality_flags(data['data'])
+        data['data']['CRUISE_NO'] = data['data'][
+            'CRUISE_NO'].apply(adjust_cruise_no)
+        data['data'].delete_rows_with_no_data()
 
         for key in data['data']['KEY'].unique():
             self._reset_serie()
             df = data['data'].loc[data['data']['KEY'] == key, :]
-            df.delete_rows_with_no_data()
             self._update_meta(df)
             self._update_selected_columns(df)
 
