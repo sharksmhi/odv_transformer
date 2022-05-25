@@ -9,6 +9,11 @@ Created on 2022-02-02 18:22
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
+def add_cdi_id(seqno):
+    """Insert CDI-id."""
+    return f'seqno_{seqno}_H09'
+
+
 def adjust_cruise_no(cruise):
     """If shipc should be mapped we map cruise_no as well."""
     if len(cruise) > 7:
@@ -43,15 +48,20 @@ class SdnOdvWriter(WriterBase):
         """Check which columns exists and add them to self.selected_columns."""
         for p in self.meta_spec['columns'] + self.data_spec['columns']:
             if p in df.columns:
-                self.selected_columns.add(p)
+                if df[p].any():
+                    self.selected_columns.add(p)
 
-    @staticmethod
-    def _set_smtyp(df):
+    def _add_data(self, df):
         """Set sampling type to data.
 
         For this writer sampling type will always be "B" for bottle sampling.
         """
         df['SMTYP'] = 'B'
+        df['Q_DEPH'] = ''
+        df['LOCAL_CDI_ID'] = df['SEQNO'].apply(add_cdi_id)
+        df['CRUISE_NO'] = df['CRUISE_NO'].apply(adjust_cruise_no)
+        self._map_quality_flags(df)
+        df.delete_rows_with_no_data()
 
     def _map_quality_flags(self, df):
         """Change quality flags according to SeaDataNet standard."""
@@ -60,15 +70,13 @@ class SdnOdvWriter(WriterBase):
             df.loc[boolean, qf] = df.loc[boolean, qf].replace(
                 self.data_spec['flag_mapping']
             )
+            boolean = df[qf[2:]].eq('')
+            df.loc[boolean, qf] = '9'
 
-    def write(self, file_path, data, pmap=None, **kwargs):
+    def write(self, file_structure, data, pmap=None, **kwargs):
         """Write data to ODV txt format."""
         self._set_parameter_mapping(pmap)
-        self._set_smtyp(data['data'])
-        self._map_quality_flags(data['data'])
-        data['data']['CRUISE_NO'] = data['data'][
-            'CRUISE_NO'].apply(adjust_cruise_no)
-        data['data'].delete_rows_with_no_data()
+        self._add_data(data['data'])
 
         for key in data['data']['KEY'].unique():
             self._reset_serie()
@@ -80,9 +88,10 @@ class SdnOdvWriter(WriterBase):
             self.add_sdn_mapping(df)
             self.add_data_table(df)
 
-            self._write(str(file_path).format_map(
-                {'SEQNO': self.meta.get('Seqno')}
-            ))
+            self._write(
+                str(file_structure).format_map({
+                    'SEQNO': self.meta.get('Seqno')})
+            )
 
     def _write(self, fid):
         """Write data to file according to ICES ODV format."""
@@ -135,8 +144,12 @@ class SdnOdvWriter(WriterBase):
     def add_data_table(self, df):
         """Add data table to self.data_serie."""
         col_order = [c for c in self.meta_spec['columns'] if c in df]
-        col_order.extend(
-            [c for c in df.columns if c not in col_order and self._in_map(c)])
+        for c in self.data_spec['columns']:
+            if c in col_order:
+                continue
+            if self._in_map(c):
+                col_order.append(c)
+                col_order.append('Q_' + c)
         self._empty_redundant_meta_columns(df)
         df = df[col_order]
 

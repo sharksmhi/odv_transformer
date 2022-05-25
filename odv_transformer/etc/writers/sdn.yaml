@@ -29,7 +29,6 @@ data_spec:
     M: "9"
   columns:
     - DEPH
-#    - PRES_CTD
     - TEMP_BTL
     - TEMP_CTD
     - SALT_BTL
@@ -38,8 +37,6 @@ data_spec:
     - CNDC_CTD
     - DOXY_BTL
     - DOXY_CTD
-  #  - FLUO
-  #  - FLUO_CTD
     - H2S
     - PH
   #  - PH_LAB
