@@ -129,8 +129,7 @@ class SdnOdvWriter(WriterBase):
         row = '<subject>SDN:LOCAL:{LOCAL}</subject>' \
               '<object>SDN:P01::{P01}</object>' \
               '<units>SDN:P06::{P06}</units>'
-        self.data_serie.append(self.meta_block_prefix +
-                               'SDN_parameter_mapping')
+        self.data_serie.append(self.meta_block_prefix + 'SDN_parameter_mapping')
         for para in df.data_columns:
             _p = para.split()[0]
             if _p not in self.parameters or _p not in self.selected_columns:
