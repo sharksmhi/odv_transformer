@@ -169,9 +169,27 @@ class MultiDeliveries(dict):
             data (DataFrames-obj): Data incl. all elements of delivery.
             **kwargs:
         """
-        delivery_name = name
-        if delivery_name:
-            self.setdefault(delivery_name, data)
+        if name:
+            self.setdefault(name, data)
+
+    def merge_deliveries(self, name=None, deliveries=None):
+        """Merge multiple deliveries.
+
+        Args:
+            name (str): New name for the merged dataset.
+            deliveries (iterable): Name of deliveries.
+        """
+        deliveries = deliveries or []
+
+        if name and len(deliveries) > 1:
+            merge = self[deliveries[0]]['data']
+            for delivery_name in deliveries[1:]:
+                merge = merge.append(self[delivery_name]['data'],
+                                     ignore_index=True)
+
+            dfs = DataFrames(data_type='merged_dataset', name=name)
+            dfs.append_new_frame(name='data', data=merge)
+            self.setdefault(name, dfs)
 
     def drop_delivery(self, name=None):
         """Delete delivery."""

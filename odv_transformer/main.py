@@ -75,6 +75,17 @@ class Session:
 
         self.deliveries.append_new_delivery(name=delivery_name, data=dfs)
 
+    def merge(self, *args, deliveries=None, new_name=None, **kwargs):
+        """Merge deliveries into one.
+
+        Args:
+            *args:
+            deliveries (iterable): Name of the delivery write
+            new_name (str): Delivery name to use after merge is completed
+            **kwargs (dict): kwargs to pass on to merge method
+        """
+        self.deliveries.merge_deliveries(name=new_name, deliveries=deliveries)
+
     def write(self, *args, writer=None, delivery_name=None, **kwargs):
         """Write log.
 
