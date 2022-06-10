@@ -91,7 +91,11 @@ class Frame(pd.DataFrame, ABC):
     def data_columns(self):
         """Return data columns (not metadata- or quality flag-columns)."""
         if 'DEPH' in self.columns:
-            return ['DEPH'] + [c[2:] for c in self.quality_flag_columns]
+            cols = ['DEPH']
+            for c in self.quality_flag_columns:
+                if c[2:] != 'DEPH':
+                    cols.append(c[2:])
+            return cols
         else:
             return ['MNDEP', 'MXDEP'] + \
                    [c[2:] for c in self.quality_flag_columns]

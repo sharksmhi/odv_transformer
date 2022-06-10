@@ -45,7 +45,7 @@ parameters:
   - PRES_CTD
   - TEMP_CTD
   - SALT_CTD
-#  - CNDC_CTD
+  - CNDC_CTD
 #  - DENS_CTD
   - DOXY_CTD
 #  - FLUO_CTD

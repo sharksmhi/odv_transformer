@@ -4,6 +4,7 @@ ODV Transformer
 Python 3 library developed by Shd at SMHI.
 
 - Convert data into ICES ODV delivery format.
+- Convert data into SeaDataNet ODV delivery format.
 
 
 🤔 How to contribute

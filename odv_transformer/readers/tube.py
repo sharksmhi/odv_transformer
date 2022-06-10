@@ -10,6 +10,11 @@ import pandas as pd
 from odv_transformer.readers.zip import SharkzipReader
 
 
+def adjust_cruise_number(cruise):
+    """Fill up with zeros."""
+    return cruise.zfill(2) if cruise else cruise
+
+
 class TubeChlReader(SharkzipReader):
     """Reader for the SHARK chl tube sampling datatype."""
 
@@ -31,4 +36,6 @@ class TubeChlReader(SharkzipReader):
                     df[col] = df[col].str.replace(' ', '')
             df = df[list(self.mapper.values())]
             df['SERNO'] = df['SERNO'].str.zfill(4)
+            df['CRUISE_NO'] = df['CRUISE_NO'].apply(adjust_cruise_number)
+
         return df

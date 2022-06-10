@@ -13,11 +13,11 @@ elements:
     encoding: "cp1252"
     dtype: !!python/str
     keep_default_na: false
-  delivery_note:
-    element_specifier: "processed_data/delivery_note.txt"
-    encoding: "cp1252"
-    dtype: !!python/str
-    keep_default_na: false
+#  delivery_note:
+#    element_specifier: "processed_data/delivery_note.txt"
+#    encoding: "cp1252"
+#    dtype: !!python/str
+#    keep_default_na: false
 mapper:
   visit_year: MYEAR
   station_name: STATN

@@ -1,0 +1,70 @@
+description: Writer for txt files according to SeaDataNet ODV format
+name: sdn
+data_type: txt
+default_file_name: seqno_{SEQNO}_H09.txt
+writer: !!python/name:odv_transformer.writers.sdn.SdnOdvWriter ''
+meta_block_prefix: //
+meta_spec:
+  columns:
+    - CRUISE_NO
+    - STATN
+    - SMTYP
+    - TIMESTAMP
+    - LONGI_DD
+    - LATIT_DD
+    - LOCAL_CDI_ID
+    - DISTRIBUTOR
+    - WADEP
+#    - SECCHI
+
+data_spec:
+  flag_mapping:
+    "": "1"
+    E: "1"
+    S: "3"
+    B: "4"
+    "<": "6"
+    ">": "7"
+    R: "8"
+    M: "9"
+  columns:
+    - DEPH
+    - TEMP_BTL
+    - TEMP_CTD
+    - SALT_BTL
+    - SALT_CTD
+    - CNDC_25
+    - CNDC_CTD
+    - DOXY_BTL
+    - DOXY_CTD
+    - H2S
+    - PH
+  #  - PH_LAB
+    - PH_LAB_TEMP
+    - ALKY
+    - PHOS
+    - PTOT
+    - NTRI
+    - NTRA
+    - NTRZ
+    - AMON
+    - NTOT
+    - SIO3-SI
+  #  - HUMUS
+    - CPHL
+    - DOC
+    - POC
+    - TOC
+    - PON
+  #  - CURDIR
+  #  - CURVEL
+  #  - CDOM
+    - TURB
+
+special_label_mapping:
+  STATN:
+    label: Station
+    comment: different definition at SeaDataNet
+  DISTRIBUTOR:
+    label: EDMO_code
+    comment: different definition at SeaDataNet
