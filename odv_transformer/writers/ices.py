@@ -26,8 +26,12 @@ class IcesOdvWriter(WriterBase):
         self.data_spec = None
         self.parameters = None
         self.pmap = None
-        self.smap = {'7798': '7799',
-                     '77Svävare': '77NA'}
+        self.smap = {
+            '7774': 'ZZ99',
+            # '7791': 'ZZ99',
+            '7798': 'ZZ99',
+            '77Svävare': '77NA'
+        }
         self.selected_columns = set()
         self.special_mapping = None
         super().__init__(*args, **kwargs)
@@ -281,11 +285,11 @@ class IcesProfileOdvWriter(IcesOdvWriter):
         Check if name exists in writer mapping attributes.
         """
         if name.startswith('Q_'):
-            if name[2:] in self.pmap:
+            if name[2:] in self.parameters:
                 return True
             else:
                 return False
-        elif name in self.pmap or name.split()[0] in self.pmap:
+        elif name in self.parameters or name.split()[0] in self.parameters:
             return True
         else:
             return False

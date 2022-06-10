@@ -6,6 +6,7 @@ Created on 2022-02-02 18:22
 
 @author: johannes
 """
+from odv_transformer.utils import get_time_now
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 
 
@@ -41,6 +42,7 @@ class SdnOdvWriter(WriterBase):
 
     def _update_meta(self, df):
         """Change attributes of meta dictionary."""
+        self.meta['revdate'] = get_time_now()
         self.meta['Ship'] = df.iloc[0]['SHIPC']
         self.meta['Seqno'] = df.iloc[0]['SEQNO']
 
@@ -131,7 +133,7 @@ class SdnOdvWriter(WriterBase):
                                'SDN_parameter_mapping')
         for para in df.data_columns:
             _p = para.split()[0]
-            if _p not in self.parameters:
+            if _p not in self.parameters or _p not in self.selected_columns:
                 continue
             if para in self.pmap:
                 mapper = self.pmap.get(para)

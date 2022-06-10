@@ -86,6 +86,7 @@ SECCHI:
   var_type: METASECCHI
   value_type: FLOAT
   P01: SECCSDNX
+  P02: SECC
   P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
@@ -98,6 +99,7 @@ DEPH:
   label: DEPH [m]
   value_type: FLOAT
   P01: ADEPZZ01
+  P02: AHGT
   P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
@@ -110,6 +112,7 @@ MNDEP:
   label: MNDEP [m]
   value_type: FLOAT
   P01: ADEPZZ01
+  P02: AHGT
   P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
@@ -120,6 +123,7 @@ MXDEP:
   label: MXDEP [m]
   value_type: FLOAT
   P01: ADEPZZ01
+  P02: AHGT
   P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
@@ -130,6 +134,7 @@ PRES_CTD:
   label: PRES_CTD [dbar]
   value_type: FLOAT
   P01: PRESPR01
+  P02: AHGT
   P06: UPDB
   qf_schema: SMHI
   significant_digits: 3
@@ -142,6 +147,7 @@ TEMP_BTL:
   label: TEMP_BTL [degC]
   value_type: FLOAT
   P01: TEMPPR01
+  P02: TEMP
   P06: UPAA
   qf_schema: SMHI
   significant_digits: 3
@@ -154,6 +160,7 @@ TEMP_CTD:
   label: TEMP_CTD [degC]
   value_type: FLOAT
   P01: TEMPST01
+  P02: TEMP
   P06: UPAA
   qf_schema: SMHI
   significant_digits: 4
@@ -166,6 +173,7 @@ TEMP2_CTD:
   label: TEMP2_CTD [degC]
   value_type: FLOAT
   P01: TEMPST02
+  P02: TEMP
   P06: UPAA
   qf_schema: SMHI
   significant_digits: 4
@@ -178,6 +186,7 @@ SALT_BTL:
   label: SALT_BTL [psu]
   value_type: FLOAT
   P01: PSLTZZ01
+  P02: PSAL
   P06: UUUU
   qf_schema: SMHI
   significant_digits: 4
@@ -190,6 +199,7 @@ SALT_CTD:
   label: SALT_CTD [psu]
   value_type: FLOAT
   P01: PSALST01
+  P02: PSAL
   P06: UUUU
   qf_schema: SMHI
   significant_digits: 4
@@ -202,6 +212,7 @@ SALT2_CTD:
   label: SALT2_CTD [psu]
   value_type: FLOAT
   P01: PSALST02
+  P02: PSAL
   P06: UUUU
   qf_schema: SMHI
   significant_digits: 4
@@ -214,6 +225,7 @@ CNDC_25:
   label: CNDC [mS/m]
   value_type: FLOAT
   P01: CNDCZZ01
+  P02: CNDC
   P06: MSPM
   qf_schema: SMHI
   significant_digits: 3
@@ -226,6 +238,7 @@ CNDC_CTD:
   label: CNDC_CTD [mS/m]
   value_type: FLOAT
   P01: CNDCZZ01
+  P02: CNDC
   P06: MSPM
   qf_schema: SMHI
   significant_digits: 5
@@ -238,6 +251,7 @@ CNDC2_CTD:
   label: CNDC2_CTD [mS/m]
   value_type: FLOAT
   P01: CNDCZZ02
+  P02: CNDC
   P06: MSPM
   qf_schema: SMHI
   significant_digits: 5
@@ -250,6 +264,7 @@ DENS_CTD:
   label: DENS_CTD [kg/m3]
   value_type: FLOAT
   P01: DENSWB01
+  P02: SIGT
   P06: UKMC
   qf_schema: SMHI
   significant_digits: 8
@@ -262,6 +277,7 @@ DOXY_BTL:
   label: DOXY_BTL [ml/l]
   value_type: FLOAT
   P01: DOXYWITX
+  P02: DOXY
   P06: UMLL
   qf_schema: SMHI
   significant_digits: 4
@@ -274,6 +290,7 @@ DOXY_CTD:
   label: DOXY_CTD [ml/l]
   value_type: FLOAT
   P01: DOXYZZ01
+  P02: DOXY
   P06: UMLL
   qf_schema: SMHI
   significant_digits: 5
@@ -286,6 +303,7 @@ DOXY_SAT_CTD:
   label: DOXY_SAT_CTD [%]
   value_type: FLOAT
   P01: OXYSZZ01
+  P02: DOXY
   P06: UPCT
   qf_schema: SMHI
   significant_digits: 5
@@ -298,6 +316,7 @@ DOXY_SIGNAL:
   label: DOXY_SIGNAL [V]
   value_type: FLOAT
   P01: OXYOOPCT
+  P02: OXYC
   P06: UVLT
   qf_schema: SMHI
   significant_digits: 5
@@ -330,6 +349,7 @@ H2S:
   label: H2S [µmol/l]
   value_type: FLOAT
   P01: H2SXZZXX
+  P02: SPWC
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -342,6 +362,7 @@ PH:
   label: PH [unitless]
   value_type: FLOAT
   P01: PHXXZZXX
+  P02: ALKY
   P06: UUPH
   qf_schema: SMHI
   significant_digits: 3
@@ -354,6 +375,7 @@ PH_LAB:
   label: PH_LAB [unitless]
   value_type: FLOAT
   P01: PHXXZZXX
+  P02: ALKY
   P06: UUPH
   qf_schema: SMHI
   significant_digits: 3
@@ -366,6 +388,7 @@ PH_LAB_TEMP:
   label: PH_LAB_TEMP [degC]
   value_type: FLOAT
   P01: PHTXPR01
+  P02: TMES
   P06: UPAA
   qf_schema: SMHI
   significant_digits: 4
@@ -378,6 +401,7 @@ ALKY:
   label: ALKY [mmol/kg]
   value_type: FLOAT
   P01: MDMAP014
+  P02: ALKY
   P06: MMKG
   qf_schema: SMHI
   significant_digits: 4
@@ -390,6 +414,7 @@ PHOS:
   label: PHOS [µmol/l]
   value_type: FLOAT
   P01: PHOSZZXX
+  P02: PHOS
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -402,6 +427,7 @@ PTOT:
   label: PTOT [µmol/l]
   value_type: FLOAT
   P01: TPHSZZXX
+  P02: TDPX
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -414,6 +440,7 @@ NTRI:
   label: NTRI [µmol/l]
   value_type: FLOAT
   P01: NTRIZZXX
+  P02: NTRI
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -426,6 +453,7 @@ NTRA:
   label: NTRA [µmol/l]
   value_type: FLOAT
   P01: NTRAZZXX
+  P02: NTRA
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -438,6 +466,7 @@ NTRZ:
   label: NTRZ [µmol/l]
   value_type: FLOAT
   P01: NTRZZZXX
+  P02: NTRA
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -450,6 +479,7 @@ AMON:
   label: AMON [µmol/l]
   value_type: FLOAT
   P01: AMONZZXX
+  P02: AMON
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -462,6 +492,7 @@ NTOT:
   label: NTOT [µmol/l]
   value_type: FLOAT
   P01: NTOTZZXX
+  P02: TDNT
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -474,6 +505,7 @@ SIO3-SI:
   label: SIO3-SI [µmol/l]
   value_type: FLOAT
   P01: SLCAZZXX
+  P02: SLCA
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -496,6 +528,7 @@ CPHL:
   label: CPHL [µg/l]
   value_type: FLOAT
   P01: CPHLZZXX
+  P02: CPWC
   P06: UMMC
   qf_schema: SMHI
   significant_digits: 4
@@ -508,6 +541,7 @@ DOC:
   label: DOC [µmol/l]
   value_type: FLOAT
   P01: CORGZZZX
+  P02: DOCC
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -520,6 +554,7 @@ POC:
   label: POC [µmol/l]
   value_type: FLOAT
   P01: MDMAP010
+  P02: CORG
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -532,6 +567,7 @@ TOC:
   label: TOC [mg/l]
   value_type: FLOAT
   P01: CORGZZTL
+  P02: DOCC
   P06: UMGL
   qf_schema: SMHI
   significant_digits: 4
@@ -543,7 +579,8 @@ PON:
   LOCAL: PON
   label: PON [µmol/l]
   value_type: FLOAT
-  P01: NTOTZZZZ
+  P01: NTOTPGFF
+  P02: NTOT
   P06: UPOX
   qf_schema: SMHI
   significant_digits: 4
@@ -586,6 +623,7 @@ TURB:
   label: TURB [FNU]
   value_type: FLOAT
   P01: TURBXXXX
+  P02: TSED
   P06: USTU
   qf_schema: SMHI
   significant_digits: 4
@@ -598,6 +636,7 @@ SVEL_CTD:
   label: SVEL_CTD [m/s]
   value_type: FLOAT
   P01: SVELCT01
+  P02: SVEL
   P06: UVAA
   qf_schema: SMHI
   significant_digits: 6

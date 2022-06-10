@@ -7,6 +7,7 @@ Created on 2022-02-02 18:00
 @author: johannes
 """
 import numpy as np
+import datetime
 from pathlib import Path
 from collections import Mapping
 from threading import Thread
@@ -31,6 +32,14 @@ def decmin_to_decdeg(pos, decimals=4):
 def get_base_folder():
     """Return the base folder of ODV-transformer."""
     return Path(__file__).parent
+
+
+def get_time_now(fmt=None, utc=True):
+    """Return timestamp string for current time."""
+    return datetime.datetime.now(
+        datetime.timezone.utc if utc else None).strftime(
+        fmt or '%Y-%m-%dT%H:%M:%S'
+    )
 
 
 def recursive_dict_update(d: dict, u: dict) -> dict:
