@@ -43,7 +43,6 @@ class ProfileReader(ReaderBase):
             self._set_format(item)
             df = df.append(item['data'], ignore_index=True)
         return df
-        # return datasets
 
     def _set_format(self, dset):
         """Add metadata to dataframe."""

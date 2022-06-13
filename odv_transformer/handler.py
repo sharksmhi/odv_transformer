@@ -90,15 +90,17 @@ class Frame(pd.DataFrame, ABC):
     @property
     def data_columns(self):
         """Return data columns (not metadata- or quality flag-columns)."""
-        if 'DEPH' in self.columns:
+        if 'DEPH' in self.columns and 'MNDEP' in self.columns:
+            cols = ['DEPH', 'MNDEP', 'MXDEP']
+        elif 'DEPH' in self.columns:
             cols = ['DEPH']
-            for c in self.quality_flag_columns:
-                if c[2:] != 'DEPH':
-                    cols.append(c[2:])
-            return cols
         else:
-            return ['MNDEP', 'MXDEP'] + \
-                   [c[2:] for c in self.quality_flag_columns]
+            cols = ['MNDEP', 'MXDEP']
+
+        for c in self.quality_flag_columns:
+            if c[2:] not in {'DEPH', 'MNDEP', 'MXDEP'}:
+                cols.append(c[2:])
+        return cols
 
     @property
     def data_columns_incl_flags(self):
@@ -135,12 +137,14 @@ class DataFrames(dict):
         for key, item in kwargs.items():
             setattr(self, key, item)
 
-    def append_new_frame(self, name=None, data=None, **kwargs):
+    def append_new_frame(self, name=None, data=None, merge=False, **kwargs):
         """Append new Frame-object to self.
 
         Args:
             name (str): Name of dataset (eg. "data", "analyse_info").
             data (pd.DataFrame): Data
+            merge (bool): If True we can assume that standard format handling
+                          has already been applied.
             **kwargs:
         """
         if name == 'profile_data':
@@ -152,7 +156,7 @@ class DataFrames(dict):
         elif name:
             self.setdefault(name, Frame(data))
 
-        if name in 'data':
+        if name in 'data' and not merge:
             self[name].convert_formats()
             self[name].delete_empty_columns()
             self[name].add_meta_columns()
@@ -169,9 +173,27 @@ class MultiDeliveries(dict):
             data (DataFrames-obj): Data incl. all elements of delivery.
             **kwargs:
         """
-        delivery_name = name
-        if delivery_name:
-            self.setdefault(delivery_name, data)
+        if name:
+            self.setdefault(name, data)
+
+    def merge_deliveries(self, name=None, deliveries=None):
+        """Merge multiple deliveries.
+
+        Args:
+            name (str): New name for the merged dataset.
+            deliveries (iterable): Name of deliveries.
+        """
+        deliveries = deliveries or []
+
+        if name and len(deliveries) > 1:
+            merge = self[deliveries[0]]['data']
+            for delivery_name in deliveries[1:]:
+                merge = merge.append(self[delivery_name]['data'],
+                                     ignore_index=True)
+
+            dfs = DataFrames(data_type='merged_dataset', name=name)
+            dfs.append_new_frame(name='data', data=merge, merge=True)
+            self.setdefault(name, dfs)
 
     def drop_delivery(self, name=None):
         """Delete delivery."""

@@ -16,6 +16,16 @@ def adjust_cruise_no(cruise, old, shipc):
     # return ''.join((cruise[:4], shipc, cruise[8:]))
 
 
+def set_depth_column_positions(col_order):
+    """Place DEPH, MNDEP and MXDEP together in dataframe."""
+    if 'DEPH' in col_order and 'MNDEP' in col_order:
+        di = col_order.index('DEPH') + 1
+        data_params = [c for c in col_order[di:] if c not in {'MNDEP', 'MXDEP'}]
+        return col_order[:di] + ['MNDEP', 'MXDEP'] + data_params
+    else:
+        return col_order
+
+
 class IcesOdvWriter(WriterBase):
     """Convert NODC format into ICES ODV delivery format."""
 
@@ -160,6 +170,9 @@ class IcesOdvWriter(WriterBase):
         col_order = [c for c in self.meta_spec['columns'] if c in df]
         col_order.extend(
             [c for c in df.columns if c not in col_order and self._in_map(c)])
+
+        col_order = set_depth_column_positions(col_order)
+
         self._empty_redundant_meta_columns(df)
         df = df[col_order].rename(columns=mapper)
 
@@ -206,6 +219,8 @@ class IcesOdvWriter(WriterBase):
             if qf in df:
                 # relevant for SECCHI (which counts as visit metadata)
                 meta_columns.append(qf)
+
+        df.sort_values(by=['SMTYP', 'KEY'], inplace=True)
         df.loc[df[['KEY', 'SMTYP']].duplicated(keep='first'), meta_columns] = ''
 
     def _in_map(self, name):

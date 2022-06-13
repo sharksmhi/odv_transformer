@@ -25,6 +25,7 @@ class Settings:
         self.user = Path.home().name
         self.readers = {}
         self.writers = {}
+        self.parameter_mapping = None
 
         self._load_settings(self.base_directory.joinpath('etc'))
 
