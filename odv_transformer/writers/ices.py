@@ -105,19 +105,26 @@ class IcesOdvWriter(WriterBase):
             )
         self.data_serie.append(self.meta_block_prefix)
 
+    def validate_parameter_name(self, parameter, data_columns):
+        """Validate the given parameter and return name if ok."""
+        _p = parameter.split()[0]
+        if _p not in data_columns:
+            return None
+        if parameter not in self.pmap:
+            if _p not in self.pmap:
+                return None
+            parameter = _p
+        if (parameter not in self.parameters and _p not in self.parameters) or (
+                parameter in self.meta_spec['columns']):
+            return None
+        return parameter
+
     def add_data_variables(self, df):
         """Add data variables to self.data_serie."""
         row = '{}=\"{}\"'
         for para in df.columns:
-            _p = para.split()[0]
-            if _p not in df.data_columns:
-                continue
-            if para not in self.pmap:
-                if _p not in self.pmap:
-                    continue
-                para = _p
-            if (para not in self.parameters and _p not in self.parameters) or (
-                    para in self.meta_spec['columns']):
+            para = self.validate_parameter_name(para, df.data_columns)
+            if not para:
                 continue
             self.selected_columns.add(para)
             self.data_serie.append(
@@ -135,6 +142,20 @@ class IcesOdvWriter(WriterBase):
             )
         self.data_serie.append(self.meta_block_prefix)
 
+    def get_ices_mapper(self, parameter):
+        """Return mapper.
+
+        Validate and return a mapping object associated to the given parameter.
+        """
+        _p = parameter.split()[0]
+        if _p not in self.parameters:
+            return None
+        if parameter in self.pmap:
+            mapper = self.pmap.get(parameter)
+        else:
+            mapper = self.pmap.get(_p)
+        return mapper
+
     def add_ices_mapping(self, df):
         """Add ICES parameter mapping to self.data_serie."""
         row = '<subject>ICES:LOCAL:{LOCAL}</subject>' \
@@ -143,21 +164,20 @@ class IcesOdvWriter(WriterBase):
         self.data_serie.append(
             self.meta_block_prefix + 'ICES_parameter_mapping')
         for para in df.data_columns:
-            _p = para.split()[0]
-            if _p not in self.parameters:
+            mapper = self.get_ices_mapper(para)
+            if not mapper:
                 continue
-            if para in self.pmap:
-                mapper = self.pmap.get(para)
-            else:
-                mapper = self.pmap.get(_p)
             self.data_serie.append(
                 self.meta_block_prefix + row.format_map(mapper))
         self.data_serie.append(self.meta_block_prefix)
 
-    def add_data_table(self, df):
-        """Add data table to self.data_serie."""
+    def get_data_mapper(self, columns):
+        """Return mapper.
+
+        Validate and return a mapping object associated to the given columns.
+        """
         mapper = {}
-        for c in df.columns:
+        for c in columns:
             if c in self.pmap:
                 val = self.pmap[c].get('label')
             else:
@@ -166,11 +186,15 @@ class IcesOdvWriter(WriterBase):
                     continue
                 val = self.pmap[_c].get('label')
             mapper.setdefault(c, val)
+        return mapper
+
+    def add_data_table(self, df):
+        """Add data table to self.data_serie."""
+        mapper = self.get_data_mapper(df.columns)
 
         col_order = [c for c in self.meta_spec['columns'] if c in df]
         col_order.extend(
             [c for c in df.columns if c not in col_order and self._in_map(c)])
-
         col_order = set_depth_column_positions(col_order)
 
         self._empty_redundant_meta_columns(df)
