@@ -125,5 +125,7 @@ class Session:
             file_path,
             self.deliveries.get(delivery_name),
             pmap=self.settings.parameter_mapping,
+            lmap=self.settings.labo_mapping,
+            smap=self.settings.ship_mapping,
             **kwargs
         )

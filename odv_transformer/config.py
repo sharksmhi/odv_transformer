@@ -26,6 +26,8 @@ class Settings:
         self.readers = {}
         self.writers = {}
         self.parameter_mapping = None
+        self.labo_mapping = None
+        self.ship_mapping = None
 
         self._load_settings(self.base_directory.joinpath('etc'))
 

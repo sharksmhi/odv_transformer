@@ -67,7 +67,7 @@ class IcesOdvWriter(WriterBase):
     def _write(self, fid):
         """Write data to file according to ICES ODV format."""
         print(f'writing to: {fid}')
-        write_with_numpy(data=self.data_serie, save_path=fid)
+        write_with_numpy(fid, self.data_serie, fmt='%s', encoding='utf-8')
 
     def _reset_serie(self):
         """Set data_serie to an empty pandas serie."""
