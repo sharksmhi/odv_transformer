@@ -10,3 +10,4 @@ from odv_transformer.writers.writer import WriterBase  # noqa: F401
 from odv_transformer.writers.ices import (IcesOdvWriter,  # noqa: F401
                                           IcesProfileOdvWriter)  # noqa: F401
 from odv_transformer.writers.sdn import SdnOdvWriter  # noqa: F401
+from odv_transformer.writers.cdi import CdiWriter  # noqa: F401

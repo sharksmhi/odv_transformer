@@ -11,15 +11,16 @@ from abc import abstractmethod, ABC
 import numpy as np
 
 
-def write_with_numpy(data=None, save_path=None, fmt='%s'):
+def write_with_numpy(*args, **kwargs):
     """Write numpy arrays or pd.Series to file.
 
     Args:
         data: array
         save_path (str): complete path to file
         fmt: format of file eg. '%s', '%f'
+        encoding: eg. 'utf-8'
     """
-    thread_process(np.savetxt, save_path, data, fmt=fmt)
+    thread_process(np.savetxt, *args, **kwargs)
 
 
 class WriterBase(ABC):

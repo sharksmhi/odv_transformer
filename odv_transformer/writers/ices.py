@@ -67,7 +67,7 @@ class IcesOdvWriter(WriterBase):
     def _write(self, fid):
         """Write data to file according to ICES ODV format."""
         print(f'writing to: {fid}')
-        write_with_numpy(data=self.data_serie, save_path=fid)
+        write_with_numpy(fid, self.data_serie, fmt='%s', encoding='utf-8')
 
     def _reset_serie(self):
         """Set data_serie to an empty pandas serie."""
@@ -206,6 +206,8 @@ class IcesOdvWriter(WriterBase):
 
     def _map_shipc(self, df):
         """Map ship to ICES VOCAB."""
+        # Don´t use late binding closures.
+        # https://docs.python-guide.org/writing/gotchas/#late-binding-closures
         ship_set = set(df['SHIPC'])
         for shipc, ices_code in self.smap.items():
             if shipc in ship_set:
@@ -214,10 +216,14 @@ class IcesOdvWriter(WriterBase):
                 df['KEY'] = df[['MYEAR', 'SHIPC', 'SERNO']].apply(
                     get_key, axis=1
                 )
-                df.loc[boolean, 'CRUISE_NO'] = df.loc[boolean,
-                                                      'CRUISE_NO'].apply(
-                    lambda x: adjust_cruise_no(x, shipc, ices_code)
-                )
+                df.loc[boolean, 'CRUISE_NO'] = [
+                    adjust_cruise_no(x, shipc, ices_code)
+                    for x in df.loc[boolean, 'CRUISE_NO']
+                ]
+                # df.loc[boolean, 'CRUISE_NO'] = df.loc[boolean,
+                #                                       'CRUISE_NO'].apply(
+                #     lambda x: adjust_cruise_no(x, shipc, ices_code)
+                # )
 
     def _empty_redundant_meta_columns(self, df):
         """Set '' on redundant meta rows.

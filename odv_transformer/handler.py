@@ -53,6 +53,30 @@ class Frame(pd.DataFrame, ABC):
         self['SMTYP'] = ''  # eg. B (BTL), C (CTD)
         self['SMCAT'] = ''  # eg. 30 (BTL-category), 130 (CTD-category)
 
+    def filter_data(self, filters):
+        """Remove unwanted data based on given filters.
+
+        Args:
+            filters (dict): Contains lists with valid values to keep.
+                            Example: {
+                                'MYEAR': ['2020', '2022'],
+                                'SHIPC': ['77SE']
+                            }
+        """
+        if not filters:
+            return
+
+        boolean = True
+        for key, item in filters.items():
+            if key in self.keys() and isinstance(item, list):
+                boolean = boolean & (self[key].isin(item))
+
+        if isinstance(boolean, bool):
+            return
+        else:
+            self.drop(self.index[~boolean], inplace=True)
+            self.reset_index(drop=True, inplace=True)
+
     def convert_formats(self):
         """Convert formats of self."""
         self['KEY'] = self[['MYEAR', 'SHIPC', 'SERNO']].apply(
@@ -137,7 +161,8 @@ class DataFrames(dict):
         for key, item in kwargs.items():
             setattr(self, key, item)
 
-    def append_new_frame(self, name=None, data=None, merge=False, **kwargs):
+    def append_new_frame(self, name=None, data=None, merge=False, filters=None,
+                         **kwargs):
         """Append new Frame-object to self.
 
         Args:
@@ -145,11 +170,13 @@ class DataFrames(dict):
             data (pd.DataFrame): Data
             merge (bool): If True we can assume that standard format handling
                           has already been applied.
+            filters (dict): Contains lists with valid values to keep.
             **kwargs:
         """
         if name == 'profile_data':
             for key in list(data):
                 data[key]['data'] = Frame(data[key]['data'])
+                data[key]['data'].filter_data(filters)
                 data[key]['data'].convert_formats()
                 data[key]['data'].add_meta_columns()
             self.setdefault(name, data)
@@ -157,6 +184,7 @@ class DataFrames(dict):
             self.setdefault(name, Frame(data))
 
         if name in 'data' and not merge:
+            self[name].filter_data(filters)
             self[name].convert_formats()
             self[name].delete_empty_columns()
             self[name].add_meta_columns()

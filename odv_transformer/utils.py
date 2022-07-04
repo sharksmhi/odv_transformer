@@ -9,7 +9,7 @@ Created on 2022-02-02 18:00
 import numpy as np
 import datetime
 from pathlib import Path
-from collections import Mapping
+from typing import Mapping
 from threading import Thread
 from decimal import Decimal, ROUND_HALF_UP
 
