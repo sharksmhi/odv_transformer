@@ -6,18 +6,26 @@ Created on 2022-07-04 10:10
 
 @author: johannes
 """
-import time
 from pathlib import Path
 from odv_transformer import Session
 from frigate import FilterOptions, get_data
 
 
 ARCHIVE_PATH = Path(r'C:\Arbetsmapp\datasets\PhysicalChemical')
+MAPPING = {
+    'year': 'MYEAR',
+    'ship': 'SHIPC',
+    'serno': 'SERNO',
+    'seqno': 'SEQNO',
+    'proj': 'PROJ',
+    'orderer': 'ORDERER'
+}
+
 
 if __name__ == "__main__":
     filter_opt = FilterOptions(
         year=['2020'],
-        ship=['7798'],
+        ship=['77SE'],
     )
     archives = get_data(
         db_path=str(ARCHIVE_PATH.joinpath('sharklog.db')),
@@ -35,9 +43,13 @@ if __name__ == "__main__":
     for row in archives.itertuples():
         print(row.archive_name)
         s.read(
-            ARCHIVE_PATH.joinpath(row.year, row.archive_name),
+            str(ARCHIVE_PATH.joinpath(row.year, row.archive_name)),
             reader='phyche_archive',
             delivery_name=row.archive_name,
+            filters={
+                MAPPING.get(key): item
+                for key, item in filter_opt.in_list_filter.items()
+            }
         )
 
     s.merge(

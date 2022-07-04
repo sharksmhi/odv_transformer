@@ -71,7 +71,7 @@ class Session:
         dfs = DataFrames(data_type=data_type, name=delivery_name)
         for element, item in reader.elements.items():
             df = reader.read_element(item.pop('element_specifier'), **item)
-            dfs.append_new_frame(name=element, data=df)
+            dfs.append_new_frame(name=element, data=df, **kwargs)
 
         self.deliveries.append_new_delivery(name=delivery_name, data=dfs)
 
