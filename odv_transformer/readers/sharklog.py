@@ -23,48 +23,6 @@ class LogReader:
         """Initialize."""
         self.table = table
 
-    def get_data_for_time_period(self, start_time=None, end_time=None):
-        """Return log based on a time period.
-
-        Args:
-            start_time (str): Date string.
-            end_time (str): Date string.
-        """
-        if start_time and end_time:
-            conn = get_db_conn()
-            return pd.read_sql(
-                f"""select * from {self.table
-                } where datetime between '"""
-                + start_time + """%' and '""" + end_time + """%'""",
-                conn
-            )
-
-    def get_data_for_key(self, key):
-        """Return a one row dataframe based on key.
-
-        Args:
-            key (str): Key according to standard physical and chemical
-                       structure (YYYY_SHIPC_SERNO)
-        """
-        conn = get_db_conn()
-        return pd.read_sql(
-            f"""select * from {self.table} where key like '""" + key + """'""",
-            conn
-        )
-
-    def get_data_for_seqno(self, seqno):
-        """Return associated information to the given seqno value.
-
-        Args:
-            seqno (int): Sequence number. Follow the order of witch the
-                         serie as been added to the database.
-        """
-        conn = get_db_conn()
-        return pd.read_sql(
-            f"""select * from {self.table} where seqno = {seqno}""",
-            conn
-        )
-
     def get_data_for_seqno_list(self, seqno_list):
         """Return dataframe of information based on the given list of seqnos.
 
@@ -83,21 +41,6 @@ class LogReader:
             f"""select * from {
             self.table} where seqno in (""" + list_str + """)""",
             conn
-        )
-
-    def get_data_for_cdi(self, cdi):
-        """Return associated information to the given seqno value.
-
-        Args:
-            cdi (str): Local CDI identification number.
-                       The ID can vary in structure, but the latest version
-                       follow "seqno_{SEQNO}_H09",
-                       where H09 is code for discrete depth data.
-        """
-        conn = get_db_conn()
-        return pd.read_sql(
-            f"""select * from {self.table} where cdi_id like '""" + cdi
-            + """'""", conn
         )
 
 
