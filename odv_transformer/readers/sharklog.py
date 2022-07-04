@@ -33,8 +33,8 @@ class LogReader:
         if start_time and end_time:
             conn = get_db_conn()
             return pd.read_sql(
-                f"""select * from {self.table} where datetime between 
-                '"""+start_time+"""%' and '"""+end_time+"""%'""",
+                f"""select * from {self.table} where datetime between '""" +
+                start_time + """%' and '""" + end_time + """%'""",
                 conn
             )
 
@@ -47,7 +47,7 @@ class LogReader:
         """
         conn = get_db_conn()
         return pd.read_sql(
-            f"""select * from {self.table} where key like '"""+key+"""'""",
+            f"""select * from {self.table} where key like '""" + key + """'""",
             conn
         )
 
@@ -95,8 +95,8 @@ class LogReader:
         """
         conn = get_db_conn()
         return pd.read_sql(
-            f"""select * from {self.table} where cdi_id like '"""+cdi+"""'""",
-            conn
+            f"""select * from {self.table} where cdi_id like '""" +
+            cdi + """'""", conn
         )
 
 
