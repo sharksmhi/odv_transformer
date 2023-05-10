@@ -56,7 +56,7 @@ class PhysicalChemicalArchiveReader(PandasTxtReader):
     def _activate_files(self, *args, **kwargs):
         """Set folder paths to self.files."""
         folder_path = Path(args[0]) if type(args) == tuple else Path(args)
-        if not folder_path.exists:
+        if not folder_path.exists():
             raise FileNotFoundError(
                 'Could not find the given directory: {}'.format(folder_path)
             )

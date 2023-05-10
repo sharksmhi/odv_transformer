@@ -58,13 +58,16 @@ class ProfileReader(ReaderBase):
     def _activate_files(self, *args, **kwargs):
         """Set folder paths to self.files."""
         folder_path = Path(args[0]) if type(args) == tuple else Path(args)
-        if not folder_path.exists:
+        if not folder_path.exists():
             raise FileNotFoundError(
-                'Could not find the given directory: {}'.format(folder_path)
+                f'Could not find the given directory {folder_path=}'
             )
-        if folder_path.name != 'processed_data':
-            folder_path = folder_path / 'processed_data'
+        data_path = Path(f"{folder_path}/data") #Path(f"{folder_path}/data")
+        if not data_path.exists():
+            raise FileNotFoundError(
+                f'{data_path=} does not exist'
+            )
 
-        for fid in generate_filepaths(str(folder_path), endswith='.txt'):
+        for fid in generate_filepaths(str(data_path), endswith='.txt'):
             fid = Path(fid)
             self.files.setdefault(fid.name, fid)
