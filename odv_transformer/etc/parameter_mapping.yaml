@@ -12,7 +12,7 @@ KEY:
   significant_digits: 0
 STATN:
   label: Reported station name
-  var_type: METASTATIONNAME
+  var_type: METAORIGSTATION
   value_type: TEXT:30
   comment:
   significant_digits: 0
@@ -83,7 +83,7 @@ PROJ:
 SECCHI:
   LOCAL: SECCHI
   label: SECCHI [m]
-  var_type: METASECCHI
+  var_type: METABASIC
   value_type: FLOAT
   P01: SECCSDNX
   P02: SECC
@@ -103,7 +103,7 @@ DEPH:
   P06: ULAA
   qf_schema: SMHI
   significant_digits: 2
-  is_primary_variable: F
+  is_primary_variable: T
   comment: ""
 Q_DEPH:
   label: QV:SMHI:DEPH [m]
