@@ -31,6 +31,7 @@ class IcesOdvWriter(WriterBase):
 
     def __init__(self, *args, **kwargs):
         """Initialize."""
+        self.encoding = 'utf-8'
         self.meta_block_prefix = None
         self.meta_spec = None
         self.data_spec = None
@@ -57,6 +58,7 @@ class IcesOdvWriter(WriterBase):
         df = self.divide_on_smtyp(data['data'])
         df.delete_rows_with_no_data()
 
+        self.add_encoding_information()
         self.add_meta_variables(df)
         self.add_data_variables(df)
         self.add_ices_mapping(df)
@@ -67,7 +69,7 @@ class IcesOdvWriter(WriterBase):
     def _write(self, fid):
         """Write data to file according to ICES ODV format."""
         print(f'writing to: {fid}')
-        write_with_numpy(fid, self.data_serie, fmt='%s', encoding='utf-8')
+        write_with_numpy(fid, self.data_serie, fmt='%s', encoding=self.encoding)
 
     def _reset_serie(self):
         """Set data_serie to an empty pandas serie."""
@@ -82,6 +84,10 @@ class IcesOdvWriter(WriterBase):
             for key, item in self.special_mapping.items():
                 pmap[key] = item  # Overwrite if exists.
         self.pmap = pmap
+
+    def add_encoding_information(self):
+        """Add file information to self.data_serie"""
+        self.data_serie.append(f"//<Encoding>{self.encoding.upper()}</Encoding>")
 
     def add_meta_variables(self, df):
         """Add meta variables to self.data_serie."""
