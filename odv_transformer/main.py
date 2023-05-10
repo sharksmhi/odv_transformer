@@ -48,7 +48,7 @@ class Session:
             )
         if reader not in self.settings.list_of_readers:
             raise ValueError(
-                'Given reader does not exist as a valid option! '
+                'Given reader {reader} does not exist as a valid option! '
                 '(valid options: {}'.format(
                     ', '.join(self.settings.list_of_readers)
                 )
