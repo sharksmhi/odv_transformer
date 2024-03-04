@@ -56,6 +56,8 @@ class IcesOdvWriter(WriterBase):
         self._map_shipc(data['data'])
 
         df = self.divide_on_smtyp(data['data'])
+        # test of a different method
+        # df = self.add_sampling_type(data['data'])
         df.delete_rows_with_no_data()
 
         self.add_encoding_information()
@@ -280,9 +282,17 @@ class IcesOdvWriter(WriterBase):
 
     @staticmethod
     def divide_on_smtyp(df):
-        """Divide dataframe based on sampling type (SMTYP)."""
+        """
+            Divide dataframe based on sampling type (SMTYP) and set Device category codes
+            Device category codes according to L05 (SEADATANET DEVICE CATEGORIES)
+            https://vocab.seadatanet.org/v_bodc_vocab_v2/search.asp?lib=L05
+        """
+        print('Dividing on sampling type')
         df_cdf = None
         ctd_cols = [c for c in df.columns if '_CTD' in c]
+
+        # CTD data has device category code 130 and sample type C
+        # To include low res CTD data as if it was bottle data ICES suggests to use Device code 30 for this too.
         if ctd_cols:
             frame_cols = df.meta_columns + ctd_cols
             btl_cols = [c for c in df.columns if c not in frame_cols]
@@ -293,9 +303,11 @@ class IcesOdvWriter(WriterBase):
 
             df[ctd_cols] = ''
 
+        # Bottle data has device category code 30 and sample type B
         if 'DEPH' in df and 'MNDEP' not in df:
             df['SMTYP'] = 'B'
             df['SMCAT'] = '30'
+        # Hose samples, set same code as bottle 
         elif 'MNDEP' in df:
             # TODO tube samples should have different codes.
             df['SMTYP'] = 'B'  # Can´t find a code for tube/hose sampling
@@ -303,6 +315,12 @@ class IcesOdvWriter(WriterBase):
 
         if ctd_cols:
             df = df.append(df_cdf, ignore_index=True)
+
+        return df
+    @staticmethod
+    def add_sampling_type(df, type = 'B', category = '30'):
+        df['SMTYP'] = type
+        df['SMCAT'] = category
 
         return df
 
