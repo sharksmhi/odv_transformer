@@ -2,30 +2,31 @@ description: Reader for txt files according to the national datahost physical an
 name: phyche_archive
 data_type: physicalchemical
 reader: !!python/name:odv_transformer.readers.discrete.PhysicalChemicalArchiveReader ''
+files_startswith: 'SHARK_'
 elements:
   delivery_note:
-    element_specifier: "delivery_note.txt"
+    element_specifier: "processed_data/delivery_note.txt"
     encoding: "cp1252"
     sep: "DUMMY_SEP"
     dtype: !!python/str
     keep_default_na: false
     engine: python
   data:
-    element_specifier: "data.txt"
+    element_specifier: "processed_data/data.txt"
     header: 0
     sep: "\t"
     encoding: "cp1252"
     dtype: !!python/str
     keep_default_na: false
   analyse_info:
-    element_specifier: "analyse_info.txt"
+    element_specifier: "processed_data/analyse_info.txt"
     header: 0
     sep: "\t"
     encoding: "cp1252"
     dtype: !!python/str
     keep_default_na: false
   sampling_info:
-    element_specifier: "sampling_info.txt"
+    element_specifier: "processed_data/sampling_info.txt"
     header: 0
     sep: "\t"
     encoding: "cp1252"
