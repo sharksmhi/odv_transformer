@@ -55,7 +55,7 @@ class IcesOdvWriter(WriterBase):
         self._reset_serie()
         self._map_shipc(data['data'])
 
-        df = self.divide_on_smtyp(data['data'])
+        df = self.divide_on_smtyp(data['data'], keep_ctd_data=False)
         # test of a different method
         # df = self.add_sampling_type(data['data'])
         df.delete_rows_with_no_data()
@@ -281,7 +281,15 @@ class IcesOdvWriter(WriterBase):
             return False
 
     @staticmethod
-    def divide_on_smtyp(df):
+    def drop_ctd_cols(df):
+        """
+            Drop CTD_column
+        """
+        pass
+
+
+    @staticmethod
+    def divide_on_smtyp(df, keep_ctd_data = True):
         """
             Divide dataframe based on sampling type (SMTYP) and set Device category codes
             Device category codes according to L05 (SEADATANET DEVICE CATEGORIES)
@@ -313,7 +321,7 @@ class IcesOdvWriter(WriterBase):
             df['SMTYP'] = 'B'  # Can´t find a code for tube/hose sampling
             df['SMCAT'] = '30'  # Can´t find a code for tube/hose sampling
 
-        if ctd_cols:
+        if ctd_cols and keep_ctd_data:
             df = df.append(df_cdf, ignore_index=True)
 
         return df
