@@ -20,10 +20,10 @@ if __name__ == "__main__":
 
     # Cannot read Physical/Cemical  from zip-filepackage, needs to be unpacked.
     deliveries = []
-    new_filename = 'SHARK'
+    new_filename = '_'.join(archives[0]["name"].split(".")[0].split('_')[:3])
     for archive in archives:
         delivery_name = archive["name"].split(".")[0]
-        new_filename += '_'+'_'.join(delivery_name.split('_')[1:])
+        new_filename += '_'+'_'.join(delivery_name.split('_')[3:])
         s.read(
         Path(r'\\winfs\data\prodkap\sharkweb\SHARKdata_datasets').joinpath(archive["name"]),
         reader=f'{archive["reader"]}',
@@ -40,5 +40,5 @@ if __name__ == "__main__":
     s.write(
         writer='ices',
         delivery_name='merged',
-        file_name=new_filename.lower(),
+        file_name=new_filename.lower().replace('version', 'vs'),
     )
