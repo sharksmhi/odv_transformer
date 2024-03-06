@@ -48,15 +48,15 @@ parameters:
   - DEPH
   - MNDEP
   - MXDEP
-  - PRES_CTD
+#  - PRES_CTD
   - TEMP_BTL
-  - TEMP_CTD
+#  - TEMP_CTD
   - SALT_BTL
-  - SALT_CTD
+#  - SALT_CTD
   - CNDC_25
-  - CNDC_CTD
+#  - CNDC_CTD
   - DOXY_BTL
-  - DOXY_CTD
+#  - DOXY_CTD
 #  - FLUO
 #  - FLUO_CTD
   - H2S
