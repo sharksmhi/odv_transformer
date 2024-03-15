@@ -8,6 +8,7 @@ Created on 2022-02-02 18:22
 """
 from odv_transformer.handler import get_key
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
+import re
 
 
 def adjust_cruise_no(cruise, old, shipc):
@@ -55,6 +56,7 @@ class IcesOdvWriter(WriterBase):
         self._reset_serie()
         self._map_shipc(data['data'])
 
+        df = self.clean_cruise_no(data['data'], keep_cruise_no=False)
         df = self.divide_on_smtyp(data['data'], keep_ctd_data=False)
         # test of a different method
         # df = self.add_sampling_type(data['data'])
@@ -279,6 +281,17 @@ class IcesOdvWriter(WriterBase):
             return True
         else:
             return False
+
+    @staticmethod
+    def clean_cruise_no(df, keep_cruise_no=True):
+        print('Cleaning CRUISE_NO')
+        unique_cruise_no = df['CRUISE_NO'].unique()
+        for val in unique_cruise_no:
+            cruise_no = re.search(r'\d+$', val)
+            cruise_no = cruise_no.group() if cruise_no else ''
+            if cruise_no and cruise_no[0] == '0':
+                df['CRUISE_NO'].values[df['CRUISE_NO']==val] = val[0:len(val)-len(cruise_no)] + cruise_no[1:len(cruise_no)]
+        return df
 
     @staticmethod
     def drop_ctd_cols(df):

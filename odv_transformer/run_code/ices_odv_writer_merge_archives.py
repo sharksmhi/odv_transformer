@@ -13,6 +13,7 @@ from odv_transformer import Session
 if __name__ == "__main__":
     s = Session()
     archives = [
+                {'name': 'SHARK_PhysicalChemical_2022_EXT_SMHI_version_2024-01-18.zip', 'reader': 'phyche_archive'},
                 {'name': 'SHARK_PhysicalChemical_2022_EKO_SMHI_version_2023-12-15.zip', 'reader': 'phyche_archive'},
                 {'name': 'SHARK_PhysicalChemical_2022_IBT_SMHI_version_2023-12-22.zip', 'reader': 'phyche_archive'},
                 {'name': 'SHARK_PhysicalChemical_2022_BAS_SMHI_version_2023-12-15.zip', 'reader': 'phyche_archive'},
