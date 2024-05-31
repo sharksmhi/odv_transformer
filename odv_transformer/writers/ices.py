@@ -285,12 +285,7 @@ class IcesOdvWriter(WriterBase):
     @staticmethod
     def clean_cruise_no(df, keep_cruise_no=True):
         print('Cleaning CRUISE_NO')
-        unique_cruise_no = df['CRUISE_NO'].unique()
-        for val in unique_cruise_no:
-            cruise_no = re.search(r'\d+$', val)
-            cruise_no = cruise_no.group() if cruise_no else ''
-            if cruise_no and cruise_no[0] == '0':
-                df['CRUISE_NO'].values[df['CRUISE_NO']==val] = val[0:len(val)-len(cruise_no)] + cruise_no[1:len(cruise_no)]
+        df['CRUISE_NO'] = df['CRUISE_NO'].str.lstrip('0')
         return df
 
     @staticmethod
