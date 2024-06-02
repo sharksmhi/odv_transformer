@@ -24,6 +24,11 @@ def get_timestamp(x):
     # return pd.Timestamp('T'.join(x), tz='UTC').strftime('%Y-%m-%dT%H:%MZ')
 
 
+def clean_cruise(x):
+    """Return cruise number without leading zeros."""   
+    return str(x).lstrip('0')
+
+
 def get_cruise(x):
     """Return cruise string according to ICES format.
 
@@ -81,6 +86,9 @@ class Frame(pd.DataFrame, ABC):
         """Convert formats of self."""
         self['KEY'] = self[['MYEAR', 'SHIPC', 'SERNO']].apply(
             get_key, axis=1
+        )
+        self['CRUISE_NO'] = self['CRUISE_NO'].apply(
+            clean_cruise
         )
         self['CRUISE_NO'] = self[['MYEAR', 'SHIPC', 'CRUISE_NO']].apply(
             get_cruise, axis=1

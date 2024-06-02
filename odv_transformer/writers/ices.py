@@ -55,8 +55,6 @@ class IcesOdvWriter(WriterBase):
         self._set_parameter_mapping(pmap)
         self._reset_serie()
         self._map_shipc(data['data'])
-
-        df = self.clean_cruise_no(data['data'], keep_cruise_no=False)
         df = self.divide_on_smtyp(data['data'], keep_ctd_data=False)
         # test of a different method
         # df = self.add_sampling_type(data['data'])
@@ -282,11 +280,6 @@ class IcesOdvWriter(WriterBase):
         else:
             return False
 
-    @staticmethod
-    def clean_cruise_no(df, keep_cruise_no=True):
-        print('Cleaning CRUISE_NO')
-        df['CRUISE_NO'] = df['CRUISE_NO'].str.lstrip('0')
-        return df
 
     @staticmethod
     def drop_ctd_cols(df):
