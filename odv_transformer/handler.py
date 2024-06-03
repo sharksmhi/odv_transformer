@@ -24,6 +24,11 @@ def get_timestamp(x):
     # return pd.Timestamp('T'.join(x), tz='UTC').strftime('%Y-%m-%dT%H:%MZ')
 
 
+def comma_2_dot(x):
+    """Return column without commas."""
+    return x.replace(',', '.')
+
+
 def clean_cruise(x):
     """Return cruise number without leading zeros."""   
     return str(x).lstrip('0')
@@ -84,6 +89,9 @@ class Frame(pd.DataFrame, ABC):
 
     def convert_formats(self):
         """Convert formats of self."""
+        self['STATN'] = self['STATN'].apply(
+            comma_2_dot
+        )
         self['KEY'] = self[['MYEAR', 'SHIPC', 'SERNO']].apply(
             get_key, axis=1
         )
