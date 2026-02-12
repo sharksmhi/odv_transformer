@@ -38,10 +38,15 @@ class ProfileReader(ReaderBase):
                               reader='ctd_stdfmt')
         datasets = session.read()
         datasets = datasets[0]
-        df = pd.DataFrame()
+        frames = []
         for item in datasets.values():
             self._set_format(item)
-            df = df.append(item['data'], ignore_index=True)
+            frames.append(item['data'])
+        df = pd.concat(frames, ignore_index=True)
+        # df = pd.DataFrame()
+        # for item in datasets.values():
+        #     self._set_format(item)
+        #     df = df.append(item['data'], ignore_index=True)
         return df
 
     def _set_format(self, dset):

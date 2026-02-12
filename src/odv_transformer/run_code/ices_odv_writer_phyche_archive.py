@@ -12,7 +12,7 @@ from odv_transformer import Session
 
 if __name__ == "__main__":
     s = Session()
-    arch_name = r'SHARK_PhysicalChemical_2022_IBT_SMHI_version_2023-12-22.zip'  # phyche_archive
+    arch_name = r'SHARK_PhysicalChemical_2024_IBT_SMHI_version_2024-04-30.zip'  # phyche_archive
     #arch_name = r'SHARK_PhysicalChemical_2022_BAS_SMHI_version_2023-12-15.zip'
     delivery_name = arch_name.split(".")[0]
     

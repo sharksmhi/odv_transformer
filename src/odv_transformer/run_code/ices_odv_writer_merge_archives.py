@@ -13,10 +13,10 @@ from odv_transformer import Session
 if __name__ == "__main__":
     s = Session()
     archives = [
-                {'name': 'SHARK_PhysicalChemical_2022_EXT_SMHI_version_2024-01-18.zip', 'reader': 'phyche_archive'},
-                {'name': 'SHARK_PhysicalChemical_2022_EKO_SMHI_version_2023-12-15.zip', 'reader': 'phyche_archive'},
-                {'name': 'SHARK_PhysicalChemical_2022_IBT_SMHI_version_2023-12-22.zip', 'reader': 'phyche_archive'},
-                {'name': 'SHARK_PhysicalChemical_2022_BAS_SMHI_version_2023-12-15.zip', 'reader': 'phyche_archive'},
+                {'name': 'SHARK_PhysicalChemical_2023_EXT_SMHI_version_2024-09-28.zip', 'reader': 'phyche_archive'},
+                {'name': 'SHARK_PhysicalChemical_2023_BAS_SMHI_version_2024-09-30.zip', 'reader': 'phyche_archive'},
+                {'name': 'SHARK_PhysicalChemical_2023_IBT_SMHI_version_2024-09-28.zip', 'reader': 'phyche_archive'},
+                {'name': 'SHARK_PhysicalChemical_2023_EKO_SMHI_version_2024-09-28.zip', 'reader': 'phyche_archive'},
                 ]
 
     # Cannot read Physical/Cemical  from zip-filepackage, needs to be unpacked.
@@ -26,7 +26,8 @@ if __name__ == "__main__":
         delivery_name = archive["name"].split(".")[0]
         new_filename += '_'+'_'.join(delivery_name.split('_')[3:])
         s.read(
-        Path(r'\\winfs\data\prodkap\sharkweb\SHARKdata_datasets').joinpath(archive["name"]),
+        # Path(r'\\winfs\data\prodkap\sharkweb\SHARKdata_datasets').joinpath(archive["name"]),
+        Path(r'C:\Users\a002573\Desktop\smhi fyskem 2023').joinpath(archive["name"]),
         reader=f'{archive["reader"]}',
         delivery_name=f'{delivery_name}',
         )

@@ -16,14 +16,15 @@ with open('requirements.txt', 'r') as fh:
         requirements.append(line.strip())
 
 NAME = 'odv_transformer'
-VERSION = '0.0.1'
-README = open('READMEpypi.rst', 'r').read()
+VERSION = '0.0.2'
+with open("README.md", "r", encoding="utf-8") as fh:
+    README = fh.read()
 
 setuptools.setup(
     name=NAME,
     version=VERSION,
     author="Johannes Johansson",
-    author_email="johannes.johansson@smhi.se",
+    author_email="nodc@smhi.se",
     description="Package to transform data to ODV-ICES-delivery format.",
     long_description=README,
     long_description_content_type="text/markdown",
@@ -42,6 +43,6 @@ setuptools.setup(
         "License :: OSI Approved :: MIT License",
         "Operating System :: OS Independent",
     ],
-    python_requires='>=3.7',
+    python_requires='>=3.11',
     install_requires=requirements,
 )

@@ -11,12 +11,13 @@ from odv_transformer import Session
 
 if __name__ == "__main__":
     s = Session()
-    folder = '//winfs-proj/data/proj/sharknet/ctd_backup/Leveranser_DV/2023'
-    delivery_name = 'dv_delivery_2022-08-21_2022-09-01' #IBTS Q3 2022
-    delivery_name = 'dv_delivery_2023-01-25_2023-02-07' #IBTS Q1 2023
+    folder = r'C:\Users\a002573\Desktop'
+    delivery_name = 'dv_delivery_2025-01-21_2025-02-03'
+    # delivery_name = 'SMHI',  delivery_name = 'IBTS Q3 2022'
+    # delivery_name = 'dv_delivery_2023-01-25_2023-02-07' #IBTS Q1 2023
 
-    folder = r'\\winfs-proj\proj\havgem\LenaV\temp'
-    delivery_name = 'odv_transform_tests'
+    # folder = r'\\winfs-proj\proj\havgem\LenaV\temp'
+    # delivery_name = 'odv_transform_tests'
 
     archive_path = Path(
         f'{folder}/{delivery_name}')

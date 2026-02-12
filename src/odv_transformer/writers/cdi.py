@@ -68,6 +68,7 @@ class CdiWriter:
                 new_list.extend([labo] * length)
             return new_list
 
+        frames = []
         for item in data.values():
             labos = self.get_labos(item['ORDERER'])
             if not labos:
@@ -94,7 +95,11 @@ class CdiWriter:
                     tmp[key] = get_array(self.smap.get(item.get('SHIPC'), ''))
                 else:
                     tmp[key] = get_array(item.get(self.mapper.get(key), ''))
-            self.df = self.df.append(pd.DataFrame(tmp), ignore_index=True)
+            frames.append(pd.DataFrame(tmp))
+            # self.df = self.df.append(pd.DataFrame(tmp), ignore_index=True)
+        if frames:
+            self.df = pd.concat(frames, ignore_index=True)
+
 
     def write(self, directory):
         """Write dataframe to text file."""

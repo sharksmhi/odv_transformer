@@ -230,11 +230,8 @@ class MultiDeliveries(dict):
         deliveries = deliveries or []
 
         if name and len(deliveries) > 1:
-            merge = self[deliveries[0]]['data']
-            for delivery_name in deliveries[1:]:
-                merge = merge.append(self[delivery_name]['data'],
-                                     ignore_index=True)
-
+            frames = [self[delivery_name]['data'] for delivery_name in deliveries]
+            merge = pd.concat(frames, ignore_index=True)
             dfs = DataFrames(data_type='merged_dataset', name=name)
             dfs.append_new_frame(name='data', data=merge, merge=True)
             self.setdefault(name, dfs)

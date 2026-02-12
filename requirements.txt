@@ -1,5 +1,6 @@
 numpy
-pandas
+pandas>=2.2.2
 six
 PyYAML
 setuptools
+ctdpy @ git+https://github.com/<user>/<repo>.git@main

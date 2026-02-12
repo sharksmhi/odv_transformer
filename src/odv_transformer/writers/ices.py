@@ -9,6 +9,7 @@ Created on 2022-02-02 18:22
 from odv_transformer.handler import get_key
 from odv_transformer.writers.writer import WriterBase, write_with_numpy
 import re
+import pandas as pd
 
 
 def adjust_cruise_no(cruise, old, shipc):
@@ -323,7 +324,8 @@ class IcesOdvWriter(WriterBase):
             df['SMCAT'] = '30'  # Can´t find a code for tube/hose sampling
 
         if ctd_cols and keep_ctd_data:
-            df = df.append(df_cdf, ignore_index=True)
+            #df = df.append(df_cdf, ignore_index=True)
+            df = pd.concat([df, df_cdf], ignore_index=True)
 
         return df
     @staticmethod
